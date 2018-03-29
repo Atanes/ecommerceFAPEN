@@ -1,0 +1,425 @@
+*{
+box-sizing: border-box;
+-moz-box-sizing: border-box;
+-o-box-sizing: border-box;
+-ms-box-sizing: border-box;
+-webkit-box-sizing: border-box;
+}
+body {
+  margin: 0px;
+  padding: 0px;
+  font-family: "Ubuntu", "open sans", sans-serif;
+}
+input[type="submit"] {
+  cursor: pointer;
+}
+#end-tel .box-6 {
+  width: 480px;
+  font-weight: bold;
+  font-size: 11px;
+  color: rgb(124, 124, 124);
+}
+#tel {
+  text-align: right;
+}
+
+#naveg {
+  width: 100%;
+  line-height: 2em;
+}
+nav {
+  background: rgb(242, 242, 242);
+}
+nav ul {
+  display: inline-block;
+  width: 800px;
+  text-align: right;
+  font-size: 15px;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+.grif {
+  color: rgb(107,43,43);
+}
+nav a {
+  text-decoration: none;
+  color: rgb(124, 124, 124);
+}
+nav a:hover {
+  color: rgb(107,43,43);
+  text-shadow: 0px 0px 1px rgba(107,43,43, 0.5);
+}
+
+#naveg img {
+  display: inline-block;
+  width: 130px;
+  vertical-align: middle;
+}
+
+#fundo {
+  width: 100%;
+  height: 550px;
+  background-image: url('../img/slide03.jpg');
+  background-size: 100% 550px;
+  text-align: center;
+  padding-top: 240px;
+  line-height: 1em;
+}
+#fundo h1, #fundo h2{
+  font-size: 72px;
+  text-shadow: 2px 2px 20px #000;
+  color: #fff;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+#fundo h1 {
+  font-size: 60px;
+}
+
+#liq-ele-ela {
+  margin-top: 40px;
+  width: 960px;
+}
+#liquida {
+  text-align: center;
+  background-image: url('../img/slide01.jpg');
+  background-size: 100%;
+  height: 190px;
+}
+#liquida p {
+  font-size: 28px;
+  text-shadow: 2px 2px 20px #000;
+  margin-bottom: 5px;
+  color: #fff;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+#liquida span{
+  font-size: 24px;
+  text-shadow: 2px 2px 20px #000;
+  color: #fff;
+  font-weight: bold;
+  text-transform: none;
+}
+#text-comum {
+  font-size: 10px;
+  text-shadow: 2px 2px 20px #000;
+  color: #fff;
+  font-weight: bold;
+}
+#text-liquida p {
+  margin-top: 10px;
+  line-height: 30px;
+}
+#confira_liquida{
+  font-size: 12px;
+  font-weight: bold;
+  display: inline-block;
+  width: 8em;
+  color: #fff;
+  background: rgb(107,43,43);
+  text-decoration: none;
+  text-align: center;
+  text-transform: uppercase;
+  padding: 0.5em;
+}
+
+#titulo-anuncio {
+  font-size: 20px;
+  font-weight: bold;
+  text-transform: uppercase;
+  text-align: center;
+  color: rgb(124, 124, 124);
+}
+#p-ele {
+  background-image: url('../img/asset2.jpeg');
+  background-size: 100%;
+  height: 190px;
+  margin-left: 20px;
+  margin-top: 25px;
+}
+#p-ela {
+  background-image: url('../img/asset1.jpeg');
+  background-size: 100%;
+  height: 190px;
+  margin-top: 25px;
+}
+
+#p-ele:hover, #p-ela:hover {
+  color: rgb(255,160,160);
+  text-shadow: 0px 0px 2px rgba(200,60,60, 0.5);
+}
+
+#p-ela, #p-ele {
+  font-size: 20px;
+  text-shadow: 2px 2px 20px #000;
+  color: #fff;
+  font-weight: bold;
+  text-align: center;
+  padding-top: 15%;
+}
+
+#outono {
+  background-image: url('../img/slide02.jpg');
+  width: 480px;
+  height: 405px;
+  background-size: 100%;
+  margin-left: 20px;
+  text-align: center;
+}
+#outono p{
+  font-size: 40px;
+  text-shadow: 2px 2px 20px #000;
+  color: #fff;
+  font-weight: bold;
+  text-align: center;
+}
+#confira_outono {
+  font-size: 16px;
+  font-weight: bold;
+  display: inline-block;
+  width: 8em;
+  color: #fff;
+  background: rgb(107,43,43);
+  text-decoration: none;
+  text-align: center;
+  text-transform: uppercase;
+  padding: 0.5em;
+}
+#text-outono {
+  margin: 13% 19%;
+}
+
+#anuncios-1, #anuncios-2, #anuncios-3 {
+  width: 960px;
+  margin-bottom: 3em;
+}
+.titulo-cam {
+  font-size: 25px;
+  text-align: left;
+  text-transform: uppercase;
+  color: rgb(107,43,43);
+  font-weight: bold;
+}
+.subtitulo-cam {
+  font-size: 20px;
+  text-align: left;
+  color: rgb(107,43,43);
+  font-weight: bold;
+}
+article img {
+  width: 100%;
+  height: 45%;
+  background: rgb(235, 235, 235);
+}
+.tam-camiseta {
+  height: 220px;
+}
+article {
+  color: rgb(107,43,43);
+}
+#img-esquerda-1, #img-esquerda-2,#img-esquerda-3 {
+  margin-left: 0px;
+}
+.img-direita {
+  margin-left: 2.75%;
+}
+
+.preco-cam p {
+  display: inline;
+}
+.preco-cam {
+  font-size: 25px;
+  font-weight: bold;
+  color: rgb(119, 119, 119);
+}
+.preco-cam-tachado {
+  font-size: 18px;
+  margin-left: 0.5em;
+  text-decoration: line-through;
+  font-weight: normal;
+}
+.name-an {
+  display: block;
+  height: 2em;
+}
+.bmais {
+  background-color: rgb(107, 43, 43);
+  border-style: none;
+  text-align: center;
+  width: 15%;
+  display: block;
+  padding: 1em;
+  margin: 0 auto;
+  margin-bottom: 4%;
+}
+.bmais a {
+  color: rgb(255, 255, 255);
+  font-size: 15px;
+  font-weight: bold;
+  text-transform: uppercase;
+  text-decoration: none;
+}
+
+footer {
+  font-size: 14px;
+  background-color: rgb(38, 38, 38);
+  line-height: 1.5em;
+}
+#sobrenos {
+  background-color: rgb(38, 38, 38);
+}
+#sobrenos h3 {
+  color: rgb(107, 43, 43);
+  text-transform: uppercase;
+}
+#sobrenos p {
+  color: rgb(124, 124, 124);
+  font-weight: 600;
+}
+
+#links {
+  background-color: rgb(38, 38, 38);
+  padding-left: 10px;
+}
+#links h3 {
+  color: rgb(107, 43, 43);
+  text-transform: uppercase;
+}
+#links ul {
+  padding: 0;
+}
+#links li {
+  list-style-type: none;
+}
+#links a {
+  color: rgb(124, 124, 124);
+  font-weight: bold;
+}
+
+#contato {
+  background-color: rgb(38, 38, 38);
+}
+#contato h3 {
+  color: rgb(107, 43, 43);
+  text-transform: uppercase;
+}
+#contato a {
+  color: rgb(124, 124, 124);
+  font-weight: 600;
+}
+#contato p {
+  color: rgb(124, 124, 124);
+  font-weight: 600;
+}
+
+#newletter {
+  background-color: rgb(38, 38, 38);
+}
+#newletter h3 {
+  color: rgb(107, 43, 43);
+  text-transform: uppercase;
+}
+#newletter p {
+  color: rgb(124, 124, 124);
+  font-weight: 600;
+}
+#newletter input[type="text"] {
+  height: 28px;
+}
+#newletter input[type="submit"] {
+  background-color: rgb(107, 43, 43);
+  font-size: 11px;
+  font-weight: bold;
+  color: rgb(255, 255, 255);
+  border-style: none;
+  height: 28px;
+}
+footer .box-12 {
+  background-color: rgb(0, 0, 0);
+  color: rgb(255, 255, 255);
+  font-size: 12px;
+  font-weight: 800;
+  width: 100%;
+  line-height: 2em;
+}
+
+#bsobrenos {
+  padding-top: 2%;
+  padding-bottom: 23%;
+}
+#bsobrenos h4 {
+  color: rgb(107, 43, 43);
+  text-transform: uppercase;
+}
+#bsobrenos p {
+  color: rgb(124, 124, 124);
+  font-weight: bold;
+}
+#imgdesigner img {
+  width: 230px;
+  margin-top: 110%;
+  margin-left: 45%;
+}
+
+#form_contato {
+  margin-top: 40px;
+  margin-bottom: 20px;
+}
+
+form {
+  width: 80%;
+}
+.campo-dig {
+  font-size: 15px;
+  font-weight: 500;
+  color: rgb(150, 150, 150);
+  width: 100%;
+  height: 2.5em;
+  padding-left: 0.5em;
+}
+.text-contato textarea {
+  height: 120px;
+}
+.text-contato {
+  font-size: 15px;
+  line-height: 2.5em;
+  color: rgb(150, 150, 150);
+  font-weight: bold;
+}
+input[name="mensagem"] {
+  width: 80px;
+  height: 2.2em;
+  margin-left: 84%;
+  background-color: rgb(107, 43, 43);
+  border: 0;
+  font-size: 15px;
+  font-weight: bold;
+  color: rgb(255, 255, 255);
+}
+
+address {
+  margin-top: 60px;
+}
+address p, address a {
+  font-size: 18px;
+  font-style: normal;
+  color: rgb(150, 150, 150);
+  line-height: 1em;
+}
+
+.text-contato select {
+  font-size: 15px;
+  font-weight: bold;
+  color: rgb(150, 150, 150);
+}
+.text-contato textarea {
+  font-size: 15px;
+  font-family: "Ubuntu", "open sans", sans-serif;
+}
+
+#construcao {
+  margin: 0 13%;
+  width: 80%;
+  height: 60%;
+}
