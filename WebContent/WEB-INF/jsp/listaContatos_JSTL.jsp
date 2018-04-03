@@ -8,7 +8,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Listagem dos Contatos</title>
 <link rel="stylesheet" href="resources/css/bootstrap.min.css">
 <link rel="stylesheet" href="resources/css/estilo.css">
@@ -56,13 +56,18 @@
 				<td>${contato.assunto}</td>
 				<td>${contato.mensagem}</td>
 				<td>
-         			<a href="mvc?logica=RemoveContatoLogic&id=${contato.id}">
-         				<img class="img_acoes" src="resources/img/Delete_Icon.png" title="Excluir"/>
-					</a>
-					
-					<a href="mvc?logica=EditarContatoLogic&id=${contato.id}">
-         				<img class="img_acoes" src="resources/img/editar.png" title="Editar"/>
-					</a>
+					<div class="row">
+						<div class="col">
+		         			<a href="mvc?logica=RemoveContatoLogic&id=${contato.id}">
+		         				<img class="img_acoes" src="resources/img/Delete_Icon.png" title="Excluir"/>
+							</a>
+						</div>
+						<div class="col">
+							<a class="col" href="mvc?logica=EditarContatoLogic&id=${contato.id}">
+		         				<img class="img_acoes" src="resources/img/editar.png" title="Editar"/>
+							</a>
+						</div>
+					</div>
        			</td>
 			</tr>
 			</c:forEach>

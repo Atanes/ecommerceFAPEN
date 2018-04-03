@@ -5,7 +5,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="utf-8">
+<meta charset="UTF-8">
 <title>T-Shirt - Contato</title>
 <link rel="stylesheet" href="resources/css/bootstrap.min.css">
 <link rel="stylesheet" href="resources/css/estilo.css">
@@ -36,7 +36,7 @@
 			<div class="form-group row">
 				<label class="col-2 col-form-label" for="telefone">Telefone</label>
 				<input class="form-control col-4" type="text" pattern="\(\d{2}\)\d{5}-\d{4}" name="telefone"
-					placeholder="(DDD) + NÃºmero de telefone" /> <label
+					placeholder="(DDD) + Número de telefone" /> <label
 					class="col-2 col-form-label" for="assunto">Assunto</label> <select
 					class="form-control col-4" name="assunto" required>
 					<option value="selecione">Selecione</option>
