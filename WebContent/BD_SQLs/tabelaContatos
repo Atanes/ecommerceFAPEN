@@ -1,0 +1,23 @@
+-- Table: public.contatos
+
+-- DROP TABLE public.contatos;
+
+CREATE TABLE public.contatos
+(
+    id integer NOT NULL DEFAULT nextval('contato_id_seq'::regclass),
+    nome character varying(60) COLLATE pg_catalog."default" NOT NULL,
+    email character varying(30) COLLATE pg_catalog."default" NOT NULL,
+    telefone character varying(14) COLLATE pg_catalog."default" NOT NULL,
+    assunto character varying(25) COLLATE pg_catalog."default" NOT NULL,
+    mensagem character varying(256) COLLATE pg_catalog."default" NOT NULL,
+    CONSTRAINT id_contato PRIMARY KEY (id)
+)
+WITH (
+    OIDS = FALSE
+)
+TABLESPACE pg_default;
+
+ALTER TABLE public.contatos
+    OWNER to "UAtanes";
+COMMENT ON TABLE public.contatos
+    IS 'Tabela para armazenar os contatos feitos pelo ecommerce de exemplo do curso de ADS da FAPEN';
