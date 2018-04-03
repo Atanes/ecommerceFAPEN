@@ -4,7 +4,7 @@ body {
   font-family: "Ubuntu", "open sans", sans-serif;
 }
 .container{
-    width: 85%;
+    width: 95%;
     margin: 0 auto;
     /*outline: thin solid blue;*/
 }
@@ -23,14 +23,25 @@ body {
     width: 110px;
 }
 
-.titulo_bloco{
-    margin-top: 10px;
+.img_acoes{
+    height: 20px;
+}
+
+.titulo{
+	margin-top: 10px;
     margin-bottom: 10px;
-    font-size: 25px;
     font-weight: bold;
     text-transform: uppercase;
     text-align: center;
     color: rgb(124, 124, 124);
+}
+
+.titulo_bloco{
+    font-size: 25px;
+}
+
+.titulo_form{
+    font-size: 35px;
 }
 
 #fundo {
@@ -187,20 +198,13 @@ footer a {
 .footer-bottom {
     min-height: 30px;
     width: 100%;
-}
-.copyright {
     color: rgb(107, 43, 43);
     line-height: 30px;
     min-height: 30px;
     padding: 7px 0;
+    
 }
-.design {
-    color: rgb(107, 43, 43);
-    line-height: 30px;
-    min-height: 30px;
-    padding: 7px 0;
-    text-align: right;
-}
-.design a {
+
+.footer-bottom a {
     color: rgb(107, 43, 43);
 }

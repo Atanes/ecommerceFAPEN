@@ -51,7 +51,7 @@ public class ContatoDAO {
 		}
 	}
 	
-	public List<Contato> getContatos() {
+	public List<Contato> listar() {
         try {
             List<Contato> contatos = new ArrayList<Contato>();
             PreparedStatement stmt = this.conn.
