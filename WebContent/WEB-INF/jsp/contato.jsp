@@ -1,6 +1,5 @@
 <%@page import="org.apache.jasper.tagplugins.jstl.core.Import"%>
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page language="java"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html>
@@ -32,12 +31,12 @@
 			<div class="form-group row">
 				<label class="col-2 col-form-label" for="email">E-mail:</label> <input
 					class="form-control col-10" type="email" name="email"
-					placeholder="Digite um e-mail vÃ¡lido" value="${contato.email }" required />
+					placeholder="Digite um e-mail válido" value="${contato.email }" required />
 			</div>
 			<div class="form-group row">
 				<label class="col-2 col-form-label" for="telefone">Telefone</label>
 				<input class="form-control col-4" type="text" pattern="\(\d{2}\)\d{5}-\d{4}" name="telefone"
-					placeholder="(DDD) + NÃºmero de telefone" value="${contato.telefone }"/> <label
+					placeholder="(DDD) + Número de telefone" value="${contato.telefone }"/> <label
 					class="col-2 col-form-label" for="assunto">Assunto</label> <select
 					class="form-control col-4" name="assunto" required>
 					<option value="selecione">Selecione</option>

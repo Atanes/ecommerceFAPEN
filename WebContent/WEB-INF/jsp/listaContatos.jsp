@@ -1,6 +1,5 @@
 <%@page import="org.apache.jasper.tagplugins.jstl.core.Import"%>
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
     <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
     <%@ page import="br.com.iridiumit.ecommerceServlet.DAOs.*"  %>
     <%@ page import="br.com.iridiumit.ecommerceServlet.modelos.*" %>
@@ -27,7 +26,7 @@
 					<th scope="col">Telefone</th>
 					<th scope="col">Assunto</th>
 					<th scope="col">Mensagem</th>
-					<th scope="col">Ações</th>
+					<th scope="col" colspan="2">Ações</th>
 				</tr>
 			</thead>
 			<tbody>
@@ -53,19 +52,15 @@
 				</td>
 				<td>${contato.assunto}</td>
 				<td>${contato.mensagem}</td>
-				<td class="row">
-					
-						<div class="col">
-		         			<a href="mvc?logica=RemoveContatoLogic&id=${contato.id}">
-		         				<img class="img_acoes" src="resources/img/Delete_Icon.png" title="Excluir"/>
-							</a>
-						</div>
-						<div class="col">
-							<a href="editarContato?id=${contato.id}">
-		         				<img class="img_acoes" src="resources/img/editar.png" title="Editar"/>
-							</a>
-						</div>
-					
+				<td>
+		         	<a href="mvc?logica=RemoveContatoLogic&id=${contato.id}">
+		         		<img class="img-responsive pull-left img_acoes" src="resources/img/Delete_Icon.png" title="Excluir"/>
+					</a>
+				</td>
+				<td>
+					<a href="editarContato?id=${contato.id}">
+         				<img class="img-responsive pull-right img_acoes" src="resources/img/editar.png" title="Editar"/>
+					</a>
        			</td>
 			</tr>
 			</c:forEach>
