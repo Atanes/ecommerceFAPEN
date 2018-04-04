@@ -16,7 +16,7 @@
 </head>
 <body>
 	
-	<c:import url="cabecalho.jsp" />
+	<c:import url="../template/cabecalho.jsp" />
 		
 	<div class="container">
 	  <h1 class="titulo titulo_form">Contato</h1>
@@ -57,7 +57,7 @@
 	   </form>
 	</div>
 	
-	<c:import url="rodape.jsp" />
+	<c:import url="../template/rodape.jsp" />
 	
 </body>
 </html>

@@ -40,7 +40,7 @@ public class EditarContatoServlet extends HttpServlet {
         
         req.setAttribute("contato", contato);
 
-        RequestDispatcher rd = req.getRequestDispatcher("/WEB-INF/jsp/contato.jsp");
+        RequestDispatcher rd = req.getRequestDispatcher("/WEB-INF/jsp/contato/contato.jsp");
         rd.forward(req,response);
 	}
 

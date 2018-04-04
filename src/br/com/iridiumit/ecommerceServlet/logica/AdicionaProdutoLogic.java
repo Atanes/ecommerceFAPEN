@@ -1,6 +1,7 @@
-package br.com.iridiumit.ecommerceServlet.servlets;
+package br.com.iridiumit.ecommerceServlet.logica;
 
 import java.io.IOException;
+
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -8,19 +9,17 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import br.com.iridiumit.ecommerceServlet.modelos.Contato;
-
 /**
- * Servlet implementation class AdicionaContatoServlet
+ * Servlet implementation class AdicionaProdutoLogic
  */
-@WebServlet("/adicionaContato")
-public class AdicionaContatoServlet extends HttpServlet {
+@WebServlet("/adicionaProduto")
+public class AdicionaProdutoLogic extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public AdicionaContatoServlet() {
+    public AdicionaProdutoLogic() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -29,13 +28,11 @@ public class AdicionaContatoServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-	
-		Contato contato = new Contato();
-		request.setAttribute("contato", contato);
+		
 		RequestDispatcher rd = request
-                .getRequestDispatcher("/WEB-INF/jsp/contato/contato.jsp");
+                .getRequestDispatcher("/WEB-INF/jsp/produto/produto.jsp");
         rd.forward(request,response);
-    }
+	}
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
