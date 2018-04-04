@@ -1,4 +1,4 @@
-<%@page import="org.apache.jasper.tagplugins.jstl.core.Import"%>
+<%@ page import="org.apache.jasper.tagplugins.jstl.core.Import"%>
 <%@ page language="java"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
