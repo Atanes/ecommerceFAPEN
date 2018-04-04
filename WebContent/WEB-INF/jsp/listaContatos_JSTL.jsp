@@ -8,7 +8,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <title>Listagem dos Contatos</title>
 <link rel="stylesheet" href="resources/css/bootstrap.min.css">
 <link rel="stylesheet" href="resources/css/estilo.css">
@@ -16,8 +16,6 @@
 <body>
 	<c:import url="cabecalho.jsp" />
 	<div class="container">
-	<!-- cria o DAO -->
-          <jsp:useBean id="dao" class="br.com.iridiumit.ecommerceServlet.DAOs.ContatoDAO"/>
 	
 		<h1 class="titulo titulo_form">Lista dos Contatos</h1>
 		<table class="table table-striped">
@@ -55,19 +53,19 @@
 				</td>
 				<td>${contato.assunto}</td>
 				<td>${contato.mensagem}</td>
-				<td>
-					<div class="row">
+				<td class="row">
+					
 						<div class="col">
 		         			<a href="mvc?logica=RemoveContatoLogic&id=${contato.id}">
 		         				<img class="img_acoes" src="resources/img/Delete_Icon.png" title="Excluir"/>
 							</a>
 						</div>
 						<div class="col">
-							<a class="col" href="mvc?logica=EditarContatoLogic&id=${contato.id}">
+							<a href="editarContato?id=${contato.id}">
 		         				<img class="img_acoes" src="resources/img/editar.png" title="Editar"/>
 							</a>
 						</div>
-					</div>
+					
        			</td>
 			</tr>
 			</c:forEach>

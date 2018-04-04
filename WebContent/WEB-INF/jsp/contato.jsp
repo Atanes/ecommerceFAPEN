@@ -5,7 +5,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <title>T-Shirt - Contato</title>
 <link rel="stylesheet" href="resources/css/bootstrap.min.css">
 <link rel="stylesheet" href="resources/css/estilo.css">
@@ -23,31 +23,32 @@
 	  <h1 class="titulo titulo_form">Contato</h1>
 
 	  <form action="mvc?logica=AdicionaContatoLogic" method="post">
+	  		<input type="hidden" name="id" value="${contato.id }"/>
 			<div class="form-group row">
 				<label class="col-2 col-form-label" for="nome">Nome:</label> <input
 					class="form-control col-10" type="text" name="nome"
-					placeholder="Digite seu nome completo" required>
+					placeholder="Digite seu nome completo" value="${contato.nome }" required />
 			</div>
 			<div class="form-group row">
 				<label class="col-2 col-form-label" for="email">E-mail:</label> <input
 					class="form-control col-10" type="email" name="email"
-					placeholder="Digite um e-mail vÃ¡lido" required>
+					placeholder="Digite um e-mail válido" value="${contato.email }" required />
 			</div>
 			<div class="form-group row">
 				<label class="col-2 col-form-label" for="telefone">Telefone</label>
 				<input class="form-control col-4" type="text" pattern="\(\d{2}\)\d{5}-\d{4}" name="telefone"
-					placeholder="(DDD) + Número de telefone" /> <label
+					placeholder="(DDD) + Número de telefone" value="${contato.telefone }"/> <label
 					class="col-2 col-form-label" for="assunto">Assunto</label> <select
 					class="form-control col-4" name="assunto" required>
 					<option value="selecione">Selecione</option>
-					<option value="camisetas-masculinas">Camisetas Masculinas</option>
-					<option value="camisetas-femininas">Camisetas Femininas</option>
-					<option value="duvidas">Duvidas</option>
+					<option value="camisetas-masculinas" <c:if test="${contato.assunto == 'camisetas-masculinas'}">selected="true"</c:if>>Camisetas Masculinas</option>
+					<option value="camisetas-femininas" <c:if test="${contato.assunto == 'camisetas-femininas'}">selected="true"</c:if>>Camisetas Femininas</option>
+					<option value="duvidas" <c:if test="${contato.assunto == 'duvidas'}">selected="true"</c:if>>Duvidas</option>
 				</select>
 			</div>
 			<div class="form-group row">
 				<label class="col-2 col-form-label" for="mensagem">Mensagem</label>
-				<textarea class="form-control col-10" name="mensagem" required></textarea>
+				<textarea class="form-control col-10" name="mensagem" required>${contato.mensagem }</textarea>
 			</div>
 			<div class="form-group row">
 				<div class="offset-sm-2 col-sm-10">

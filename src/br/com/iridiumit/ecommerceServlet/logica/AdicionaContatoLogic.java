@@ -11,6 +11,12 @@ public class AdicionaContatoLogic implements Logica {
 	@Override
 	public String executa(HttpServletRequest request, HttpServletResponse res) throws Exception {
 		 // buscando os parâmetros no request
+		
+		int id = Integer.parseInt(request.getParameter("id"));
+		ContatoDAO dao = new ContatoDAO();
+		
+		System.out.println(request.getParameter("id"));
+			
         String nome = request.getParameter("nome");
         String telefone = request.getParameter("telefone");
         String email = request.getParameter("email");
@@ -19,18 +25,24 @@ public class AdicionaContatoLogic implements Logica {
 
         // monta um objeto contato
         Contato contato = new Contato();
+        
         contato.setNome(nome);
         contato.setTelefone(telefone);
         contato.setEmail(email);
         contato.setAssunto(assunto);
         contato.setMensagem(mensagem);
-
-        // salva o contato
-        ContatoDAO dao = new ContatoDAO();
-        dao.inserir(contato);
         
-        System.out.println("Incluindo um novo Contato...");
-
+		if (id != 0) {
+			// Atualiza os dados do contato
+			System.out.println("Salvando um novo Contato...");
+			contato.setId(id);
+			dao.altera(contato);
+		} else {
+			// salva o contato
+			System.out.println("Incluindo um novo Contato...");
+			dao.inserir(contato);
+		}       
+        
         return "mvc?logica=ListaContatosLogic";
 	}
 

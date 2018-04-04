@@ -1,6 +1,10 @@
 package br.com.iridiumit.ecommerceServlet.modelos;
 
-public class Contato {
+import java.io.Serializable;
+
+public class Contato implements Serializable{
+	
+	private static final long serialVersionUID = -309513637403441918L;
 	
 	private int id;
 	private String nome;

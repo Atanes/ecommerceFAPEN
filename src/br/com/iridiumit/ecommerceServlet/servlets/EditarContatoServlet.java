@@ -1,7 +1,6 @@
 package br.com.iridiumit.ecommerceServlet.servlets;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -11,20 +10,19 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import br.com.iridiumit.ecommerceServlet.DAOs.ContatoDAO;
-import br.com.iridiumit.ecommerceServlet.logica.Logica;
 import br.com.iridiumit.ecommerceServlet.modelos.Contato;
 
 /**
- * Servlet implementation class AdicionaContatoServlet
+ * Servlet implementation class EditarContatoServlet
  */
-@WebServlet("/adicionaContato")
-public class AdicionaContatoServlet extends HttpServlet {
+@WebServlet("/editarContato")
+public class EditarContatoServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public AdicionaContatoServlet() {
+    public EditarContatoServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -32,15 +30,19 @@ public class AdicionaContatoServlet extends HttpServlet {
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doGet(HttpServletRequest req, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		// busca o writer
-		Contato contato = new Contato();
-		request.setAttribute("contato", contato);
-		RequestDispatcher rd = request
-                .getRequestDispatcher("/WEB-INF/jsp/contato.jsp");
-        rd.forward(request,response);
-    }
+		int id = Integer.parseInt(req.getParameter("id"));
+		
+		ContatoDAO dao = new ContatoDAO();
+
+        Contato contato = dao.encontraContato(id);
+        
+        req.setAttribute("contato", contato);
+
+        RequestDispatcher rd = req.getRequestDispatcher("/WEB-INF/jsp/contato.jsp");
+        rd.forward(req,response);
+	}
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)

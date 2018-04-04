@@ -113,4 +113,28 @@ public class ContatoDAO {
 	        throw new RuntimeException(e);
 	    }
 	}
+	
+	public Contato encontraContato(int id) {
+	    try {
+	    	PreparedStatement stmt = this.conn.
+                    prepareStatement("select * from contatos where id=?");
+	    	stmt.setInt(1, id);
+            ResultSet rs = stmt.executeQuery();
+            Contato contato = new Contato();
+	        if(rs.next()) {
+                contato.setId(rs.getInt("id"));
+                contato.setNome(rs.getString("nome"));
+                contato.setEmail(rs.getString("email"));
+                contato.setTelefone(rs.getString("telefone"));
+                contato.setAssunto(rs.getString("assunto"));
+                contato.setMensagem(rs.getString("mensagem"));
+	        }
+	        rs.close();
+            stmt.close();
+            return contato;
+	    } catch (SQLException e) {
+	        throw new RuntimeException(e);
+	    }
+	}
+	
 }
