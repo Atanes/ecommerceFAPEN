@@ -85,6 +85,11 @@ body {
   font-weight: normal;
 }
 
+.img_produto_lista{
+	width: 30px;
+	height: auto !important;
+}
+
 .img_produto {
       width:90%;
       height:230px !important;

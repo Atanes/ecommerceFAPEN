@@ -1,45 +1,80 @@
 package br.com.iridiumit.ecommerceServlet.logica;
 
-import java.io.IOException;
+import java.io.File;
+import java.math.BigDecimal;
+import java.util.List;
 
-import javax.servlet.RequestDispatcher;
-import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-/**
- * Servlet implementation class AdicionaProdutoLogic
- */
-@WebServlet("/adicionaProduto")
-public class AdicionaProdutoLogic extends HttpServlet {
-	private static final long serialVersionUID = 1L;
-       
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public AdicionaProdutoLogic() {
-        super();
-        // TODO Auto-generated constructor stub
-    }
+import org.apache.commons.fileupload.FileItem;
+import org.apache.commons.fileupload.disk.DiskFileItemFactory;
+import org.apache.commons.fileupload.servlet.ServletFileUpload;
 
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+import br.com.iridiumit.ecommerceServlet.DAOs.ProdutoDAO;
+import br.com.iridiumit.ecommerceServlet.modelos.Produto;
+
+public class AdicionaProdutoLogic implements Logica {
+
+	@Override
+	public String executa(HttpServletRequest request, HttpServletResponse res) throws Exception {
 		
-		RequestDispatcher rd = request
-                .getRequestDispatcher("/WEB-INF/jsp/produto/produto.jsp");
-        rd.forward(request,response);
-	}
+		/*Identifica se o formulario é do tipo multipart/form-data*/
+		if (ServletFileUpload.isMultipartContent(request)) {
+				
+				ProdutoDAO dao = new ProdutoDAO();
+				
+				Produto p = new Produto();
+				// buscando os parametros no request
+				int id = 0;
+				
+				try {
+				/*Faz o parse do request*/
+				List<FileItem> multiparts = new ServletFileUpload(new DiskFileItemFactory()).parseRequest(request);
+				
+				/*Escreve a o arquivo na pasta img*/
+				for (FileItem item : multiparts) {
+					if (!item.isFormField()) {
+						item.write(new File("C:/Temp/ImagensEcommerce" + File.separator));
+						p.setUrl_imagem(item.getName());
+					}else{
+						if(item.getFieldName().equals("id")){  
+							id = Integer.parseInt(item.getString()); 
+			             }
+						if(item.getFieldName().equals("descricao")){  
+							p.setDescricao(item.getString()); 
+			             }
+						if(item.getFieldName().equals("preco_atual")){  
+							p.setPreco_atual(new BigDecimal(item.getString())); 
+			             }
+						if(item.getFieldName().equals("preco_antigo")){  
+							p.setPreco_antigo(new BigDecimal(item.getString())); 
+			             }
+					}
+					System.out.println(item.getFieldName());
+				}
+				
+				} catch (Exception ex) {
+					System.out.println("Upload de arquivo falhou devido a "+ ex);
+				}
+				
+				System.out.println(p.getUrl_imagem());
+				
+				if (id != 0) {
+					// Atualiza os dados do contato
+					System.out.println("Salvando um novo produto..." + p.getDescricao());
+					p.setId(id);
+					dao.altera(p);
+				} else {
+					// salva o contato
+					System.out.println("Incluindo um novo Produto..." + p.getDescricao());
+					dao.inserir(p);
+				}       
 
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		doGet(request, response);
+		} else {
+			System.out.println("Desculpe este Servlet lida apenas com pedido de upload de arquivos");
+		}
+		
+		return "mvc?logica=ListaProdutosLogic";
 	}
-
 }

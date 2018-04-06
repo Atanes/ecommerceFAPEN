@@ -14,8 +14,6 @@ public class AdicionaContatoLogic implements Logica {
 		
 		int id = Integer.parseInt(request.getParameter("id"));
 		ContatoDAO dao = new ContatoDAO();
-		
-		System.out.println(request.getParameter("id"));
 			
         String nome = request.getParameter("nome");
         String telefone = request.getParameter("telefone");

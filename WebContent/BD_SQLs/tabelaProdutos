@@ -1,0 +1,32 @@
+-- Sequence: produto_id_seq
+
+-- DROP SEQUENCE produto_id_seq;
+
+CREATE SEQUENCE produto_id_seq
+  INCREMENT 1
+  MINVALUE 1
+  MAXVALUE 9223372036854775807
+  START 1
+  CACHE 1;
+ALTER TABLE produto_id_seq
+  OWNER TO postgres;
+
+-- Table: produtos
+
+-- DROP TABLE produtos;
+
+CREATE TABLE produtos
+(
+  id integer NOT NULL DEFAULT nextval('produto_id_seq'::regclass),
+  descricao character varying(60) NOT NULL,
+  preco_atual money NOT NULL,
+  preco_antigo money,
+  CONSTRAINT id_produto PRIMARY KEY (id)
+)
+WITH (
+  OIDS=FALSE
+);
+ALTER TABLE produtos
+  OWNER TO "UAtanes";
+COMMENT ON TABLE produtos
+  IS 'Tabela para armazenar os dados dos produtos do ecommerce de exemplo do curso de ADS da FAPEN';
