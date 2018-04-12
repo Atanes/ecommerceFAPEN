@@ -32,11 +32,13 @@ public class AdicionaProdutoLogic implements Logica {
 				/*Faz o parse do request*/
 				List<FileItem> multiparts = new ServletFileUpload(new DiskFileItemFactory()).parseRequest(request);
 				
+				
 				/*Escreve a o arquivo na pasta img*/
 				for (FileItem item : multiparts) {
 					if (!item.isFormField()) {
-						item.write(new File("C:/Temp/ImagensEcommerce" + File.separator));
-						p.setUrl_imagem(item.getName());
+						String path = request.getServletContext().getRealPath("imagensProdutos") + File.separator + item.getName();
+						item.write(new File(path));
+						p.setUrl_imagem("imagensProdutos" + File.separator + item.getName());
 					}else{
 						if(item.getFieldName().equals("id")){  
 							id = Integer.parseInt(item.getString()); 

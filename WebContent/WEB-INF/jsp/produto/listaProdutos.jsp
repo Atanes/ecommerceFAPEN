@@ -34,7 +34,7 @@
 				<td>${produto.id}</td>
 				<td>${produto.descricao}</td>
 				<td>
-					<img class="img_produto_lista" src="/imagensProdutos/${produto.url_imagem}"/>
+					<img class="img_produto_lista" src="${produto.url_imagem}"/>
 				</td>
 				<td>${produto.preco_atual}</td>
 				<td>
@@ -53,7 +53,7 @@
 					</a>
 				</td>
 				<td>
-					<a href="editarProduto?id=${produto.id}">
+					<a href="mvc?logica=EditarProdutoLogic&id=${produto.id}">
          				<img class="img-responsive img_acoes" src="resources/img/editar.png" title="Editar"/>
 					</a>
        			</td>
