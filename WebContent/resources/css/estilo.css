@@ -19,15 +19,15 @@ body {
   color: rgb(107,43,43);
 }
 
-.img_logo{
-    width: 110px;
+.img_logo {
+    height: 30px;
 }
 
-.img_acoes{
+.img_acoes {
     height: 20px;
 }
 
-.titulo{
+.titulo {
 	margin-top: 10px;
     margin-bottom: 10px;
     font-weight: bold;
@@ -36,11 +36,11 @@ body {
     color: rgb(124, 124, 124);
 }
 
-.titulo_bloco{
+.titulo_bloco {
     font-size: 25px;
 }
 
-.titulo_form{
+.titulo_form {
     font-size: 35px;
 }
 
@@ -53,7 +53,8 @@ body {
   padding-top: 220px;
   line-height: 1em;
 }
-#fundo h1, #fundo h2{
+
+#fundo h1, #fundo h2 {
   font-size: 72px;
   text-shadow: 2px 2px 20px #000;
   color: #fff;
@@ -104,11 +105,7 @@ body {
       height:auto !important;
     }
 
-<<<<<<< Upstream, based on origin/origin
 .link {
-=======
-.img_texto span {
->>>>>>> 793552e Ajustes de CSS
       position: absolute;
       font-size: 20px;
       text-shadow: 2px 2px 20px #000;
@@ -121,11 +118,11 @@ body {
       transform: translate(-50%, -50%)
     }
 
-.caixa_imgs{
+.caixa_imgs {
     margin-top: 25px;
 }
 
-.botao_padrao{
+.botao_padrao {
   background-color: rgb(107, 43, 43);
   border-style: none;
   text-align: center;
