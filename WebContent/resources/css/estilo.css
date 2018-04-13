@@ -104,7 +104,7 @@ body {
       height:auto !important;
     }
 
-.img_texto p {
+.link {
       position: absolute;
       font-size: 20px;
       text-shadow: 2px 2px 20px #000;

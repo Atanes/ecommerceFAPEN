@@ -3,6 +3,7 @@ package br.com.iridiumit.ecommerceServlet.logica;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import br.com.iridiumit.ecommerceServlet.DAOs.ContatoDAO;
 import br.com.iridiumit.ecommerceServlet.modelos.Contato;
 
 public class EditarContatoLogic implements Logica {
@@ -12,17 +13,14 @@ public class EditarContatoLogic implements Logica {
 		int id = Integer.parseInt(req.getParameter("id"));
 
         Contato contato = new Contato();
-        contato.setId(id);
-
-        contato.setNome(req.getParameter("nome"));
-        contato.setTelefone(req.getParameter("telefone"));
-        contato.setEmail(req.getParameter("email"));
-        contato.setAssunto(req.getParameter("assunto"));
-        contato.setMensagem(req.getParameter("mensagem"));
         
+        ContatoDAO dao = new ContatoDAO();
+        
+        contato = dao.encontraContato(id);
+                
         req.setAttribute("contato", contato);
 
-        return "/WEB-INF/jsp/contato.jsp";
+        return "/WEB-INF/jsp/contato/contato.jsp";
 	}
 
 }

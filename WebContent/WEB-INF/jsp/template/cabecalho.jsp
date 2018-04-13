@@ -14,18 +14,20 @@
 		</div>
 		<nav
 			class="navbar navbar-light navbar-expand-sm bg-light navbar-light justify-content-center">
-			<a class="navbar-brand d-flex w-50 mr-auto" href="index.html"><img
+			<a class="navbar-brand d-flex w-50 mr-auto" href="navegacao?pagina=index.jsp"><img
 				class="img_logo" src="${imagem}"
 				alt="Logo da loja camiseta"></a>
 			<div class="navbar-collapse collapse w-100" id="collapsingNavbar3">
 				<ul class="navbar-nav mx-auto w-100 justify-content-center">
 					<li class="nav-item"><a class="nav-link"
-						href="index.html">Home</a></li>
-					<li class="nav-item"><a class="nav-link" href="sobrenos.html">Sobre
+						href="navegacao?pagina=index.jsp">Home</a></li>
+					<li class="nav-item"><a class="nav-link" href="navegacao?pagina=sobrenos.jsp">Sobre
 							Nós</a></li>
-					<li class="nav-item"><a class="nav-link" href="feminino.html">Feminino</a>
+					<li class="nav-item"><a class="nav-link" href="navegacao?pagina=feminino.jsp">Feminino</a>
 					</li>
-					<li class="nav-item"><a class="nav-link" href="masculino.html">Masculino</a>
+					<li class="nav-item"><a class="nav-link" href="navegacao?pagina=masculino.jsp">Masculino</a>
+					</li>
+					<li class="nav-item"><a class="nav-link" href="adicionaProduto">Produto</a>
 					</li>
 				</ul>
 				<ul class="nav navbar-nav ml-auto w-100 justify-content-end">
