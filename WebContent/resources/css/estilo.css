@@ -104,7 +104,11 @@ body {
       height:auto !important;
     }
 
+<<<<<<< Upstream, based on origin/origin
 .link {
+=======
+.img_texto span {
+>>>>>>> 793552e Ajustes de CSS
       position: absolute;
       font-size: 20px;
       text-shadow: 2px 2px 20px #000;
