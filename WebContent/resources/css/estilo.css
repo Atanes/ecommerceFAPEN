@@ -3,13 +3,13 @@ body {
   padding: 0px;
   font-family: "Ubuntu", "open sans", sans-serif;
 }
-.container{
+.container {
     width: 100%;
     margin: 0 auto;
     /*outline: thin solid blue;*/
 }
 
-.texto_endereco{
+.texto_endereco {
   font-weight: bold;
   font-size: 12px;
   color: rgb(124, 124, 124);
@@ -86,7 +86,7 @@ body {
   font-weight: normal;
 }
 
-.img_produto_lista{
+.img_produto_lista {
 	width: 30px;
 	height: auto !important;
 }
