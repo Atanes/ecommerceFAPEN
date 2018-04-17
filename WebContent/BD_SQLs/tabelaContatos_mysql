@@ -1,0 +1,10 @@
+CREATE TABLE ecommerceFAPEN_BD.contatos
+(
+    id integer NOT NULL auto_increment,
+    nome varchar(60) NOT NULL,
+    email varchar(60) NOT NULL,
+    telefone varchar(14) NOT NULL,
+    assunto varchar(30) NOT NULL,
+    mensagem varchar(220) NOT NULL,
+    PRIMARY KEY (id)
+)

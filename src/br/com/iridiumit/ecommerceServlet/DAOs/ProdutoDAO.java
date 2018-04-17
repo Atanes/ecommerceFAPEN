@@ -46,8 +46,11 @@ public class ProdutoDAO {
 	public List<Produto> listar() {
         try {
             List<Produto> produtos = new ArrayList<Produto>();
+            /* Para PostgreSQL
+             * PreparedStatement stmt = this.conn.
+                    prepareStatement("select id, descricao, imagem, preco_atual::numeric, preco_antigo::numeric from produtos");*/
             PreparedStatement stmt = this.conn.
-                    prepareStatement("select id, descricao, imagem, preco_atual::numeric, preco_antigo::numeric from produtos");
+                    prepareStatement("select id, descricao, imagem, preco_atual, preco_antigo from produtos");
             ResultSet rs = stmt.executeQuery();
 
             while (rs.next()) {
@@ -103,8 +106,11 @@ public class ProdutoDAO {
 	
 	public Produto encontraProduto(int id) {
 	    try {
+	    	/* Para PostgreSQL
+	    	 * PreparedStatement stmt = this.conn.
+                    prepareStatement("select id, descricao, imagem, preco_atual::numeric, preco_antigo::numeric from produtos where id=?");*/
 	    	PreparedStatement stmt = this.conn.
-                    prepareStatement("select id, descricao, imagem, preco_atual::numeric, preco_antigo::numeric from produtos where id=?");
+                    prepareStatement("select id, descricao, imagem, preco_atual, preco_antigo from produtos where id=?");
 	    	stmt.setInt(1, id);
             ResultSet rs = stmt.executeQuery();
             Produto produto = new Produto();

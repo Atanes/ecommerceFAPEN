@@ -36,11 +36,11 @@
 				<td>
 					<img class="img_produto_lista" src="${produto.url_imagem}"/>
 				</td>
-				<td>${produto.preco_atual}</td>
+				<td>${produto.valorMoeda(produto.preco_atual)}</td>
 				<td>
 				<c:choose>
 					<c:when test="${not empty produto.preco_antigo}">
-						${produto.preco_antigo}
+						${produto.valorMoeda(produto.preco_antigo)}
 					</c:when>
 						<c:otherwise>
 	            			-

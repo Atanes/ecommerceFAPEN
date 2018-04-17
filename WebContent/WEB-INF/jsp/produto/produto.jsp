@@ -31,7 +31,7 @@
 			</div>
 			
 			<div class="form-group row">
-				<label class="col-2 col-form-label" for="imagen">Imagem:</label> <input
+				<label class="col-2 col-form-label" for="imagem">Imagem:</label> <input
 					class="form-control col-10" type="file" name="imagem"
 					value="${produto.url_imagem }" required />
 			</div>
@@ -39,7 +39,7 @@
 			<div class="form-group row">
 				<label class="col-2 col-form-label" for="preco_atual">Preço atual:</label> <input
 					class="form-control col-10" type="text" name="preco_atual"
-					value="${produto.preco_atual }" required />
+					value="${produto.valorMoeda(produto.preco_atual)}" required />
 			</div>
 			
 			<div class="form-group row">

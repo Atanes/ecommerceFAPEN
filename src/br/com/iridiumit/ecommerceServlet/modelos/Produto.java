@@ -2,6 +2,7 @@ package br.com.iridiumit.ecommerceServlet.modelos;
 
 import java.io.Serializable;
 import java.math.BigDecimal;
+import java.text.NumberFormat;
 
 public class Produto implements Serializable {
 
@@ -43,4 +44,12 @@ public class Produto implements Serializable {
 	public void setUrl_imagem(String url_imagem) {
 		this.url_imagem = url_imagem;
 	}
+	public String valorMoeda(BigDecimal valor){
+		NumberFormat nf = NumberFormat.getCurrencyInstance();
+		if(valor != null){
+			return nf.format(valor);
+		}
+		return "";
+	}
+	
 }

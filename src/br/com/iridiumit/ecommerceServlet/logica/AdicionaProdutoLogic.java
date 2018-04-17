@@ -2,6 +2,8 @@ package br.com.iridiumit.ecommerceServlet.logica;
 
 import java.io.File;
 import java.math.BigDecimal;
+import java.text.DecimalFormat;
+import java.text.NumberFormat;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -25,6 +27,9 @@ public class AdicionaProdutoLogic implements Logica {
 				ProdutoDAO dao = new ProdutoDAO();
 				
 				Produto p = new Produto();
+				
+				NumberFormat nf = new DecimalFormat("###,##0.00");
+				
 				// buscando os parametros no request
 				int id = 0;
 				
@@ -46,11 +51,12 @@ public class AdicionaProdutoLogic implements Logica {
 						if(item.getFieldName().equals("descricao")){  
 							p.setDescricao(item.getString()); 
 			             }
-						if(item.getFieldName().equals("preco_atual")){  
-							p.setPreco_atual(new BigDecimal(item.getString())); 
+						if(item.getFieldName().equals("preco_atual")){
+							System.out.println(item.getString().replaceAll("R|\\$| ", "").replaceAll(",", "."));
+							p.setPreco_atual(new BigDecimal(item.getString().replaceAll("R|\\$| ", "").replaceAll(",", "."))); 
 			             }
 						if(item.getFieldName().equals("preco_antigo")){  
-							p.setPreco_antigo(new BigDecimal(item.getString())); 
+							p.setPreco_antigo(new BigDecimal(item.getString().replaceAll(",", "."))); 
 			             }
 					}
 					System.out.println(item.getFieldName());

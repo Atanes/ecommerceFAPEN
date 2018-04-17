@@ -1,0 +1,10 @@
+CREATE SCHEMA ecommerceFAPEN_BD DEFAULT CHARACTER SET utf8;
+
+CREATE TABLE ecommerceFAPEN_BD.produtos (
+  id INT NOT NULL auto_increment,
+  descricao VARCHAR(60) NOT NULL,
+  imagem VARCHAR(60) NOT NULL,
+  preco_atual decimal(10,2) NOT NULL,
+  preco_antigo decimal(10,2),
+  PRIMARY KEY (id))
+ENGINE = InnoDB;
