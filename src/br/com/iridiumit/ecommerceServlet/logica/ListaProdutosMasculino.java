@@ -8,15 +8,15 @@ import javax.servlet.http.HttpServletResponse;
 import br.com.iridiumit.ecommerceServlet.DAOs.ProdutoDAO;
 import br.com.iridiumit.ecommerceServlet.modelos.Produto;
 
-public class ListaProdutosLogic implements Logica {
+public class ListaProdutosMasculino implements Logica {
 
 	@Override
 	public String executa(HttpServletRequest req, HttpServletResponse res) throws Exception {
-		List<Produto> produtos = new ProdutoDAO().listar("Todos");
+		List<Produto> produtos = new ProdutoDAO().listar("masculino");
 
         req.setAttribute("produtos", produtos);
 
-        return "/WEB-INF/jsp/produto/listaProdutos.jsp";
+        return "/WEB-INF/jsp/masculino.jsp";
 	}
 
 }

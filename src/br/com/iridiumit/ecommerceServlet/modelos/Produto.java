@@ -10,9 +10,12 @@ public class Produto implements Serializable {
 	
 	private int id;
 	private String descricao;
+	private String genero;
 	private BigDecimal preco_atual;
 	private BigDecimal preco_antigo;
 	private String url_imagem;
+	private boolean promocao;
+	private int estoque;
 	
 	public int getId() {
 		return id;
@@ -25,6 +28,12 @@ public class Produto implements Serializable {
 	}
 	public void setDescricao(String descricao) {
 		this.descricao = descricao;
+	}
+	public String getGenero() {
+		return genero;
+	}
+	public void setGenero(String genero) {
+		this.genero = genero;
 	}
 	public BigDecimal getPreco_atual() {
 		return preco_atual;
@@ -43,6 +52,18 @@ public class Produto implements Serializable {
 	}
 	public void setUrl_imagem(String url_imagem) {
 		this.url_imagem = url_imagem;
+	}
+	public boolean isPromocao() {
+		return promocao;
+	}
+	public void setPromocao(boolean promocao) {
+		this.promocao = promocao;
+	}
+	public int getEstoque() {
+		return estoque;
+	}
+	public void setEstoque(int estoque) {
+		this.estoque = estoque;
 	}
 	public String valorMoeda(BigDecimal valor){
 		NumberFormat nf = NumberFormat.getCurrencyInstance();

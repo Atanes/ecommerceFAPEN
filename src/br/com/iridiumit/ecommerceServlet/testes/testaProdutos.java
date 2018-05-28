@@ -31,7 +31,7 @@ public class testaProdutos {
 		
 		dao.altera(p);
 		
-		List<Produto> produtos = dao.listar();
+		List<Produto> produtos = dao.listar("Todos");
 		NumberFormat nf = NumberFormat.getCurrencyInstance();
 		
 		for(Produto produto : produtos){

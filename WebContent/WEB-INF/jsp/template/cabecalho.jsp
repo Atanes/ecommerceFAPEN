@@ -23,15 +23,15 @@
 						href="navegacao?pagina=index.jsp">Home</a></li>
 					<li class="nav-item"><a class="nav-link" href="navegacao?pagina=sobrenos.jsp">Sobre
 							Nós</a></li>
-					<li class="nav-item"><a class="nav-link" href="navegacao?pagina=feminino.jsp">Feminino</a>
+					<li class="nav-item"><a class="nav-link" href="mvc?logica=ListaProdutosFeminino">Feminino</a>
 					</li>
-					<li class="nav-item"><a class="nav-link" href="navegacao?pagina=masculino.jsp">Masculino</a>
+					<li class="nav-item"><a class="nav-link" href="mvc?logica=ListaProdutosMasculino">Masculino</a>
 					</li>
 					<li class="nav-item"><a class="nav-link" href="adicionaProduto">Produto</a>
 					</li>
 				</ul>
 				<ul class="nav navbar-nav ml-auto w-100 justify-content-end">
-					<li class="nav-item active"><a class="nav-link" href="adicionaContato">Contato</a>
+					<li class="nav-item"><a class="nav-link" href="adicionaContato">Contato</a>
 					</li>
 				</ul>
 			</div>

@@ -11,12 +11,12 @@
 				<div id="links" class="col-md-2">
 					<h3>Links</h3>
 					<ul>
-						<li><a href="index.html">Home</a></li>
-						<li><a href="sobrenos.html">Sobre Nós</a></li>
-						<li><a href="feminino.html">Feminino</a></li>
-						<li><a href="masculino.html">Masculino</a></li>
-						<li><a href="construcao.html">Nossas Lojas</a></li>
-						<li><a href="contato.html">Contato</a></li>
+						<li><a href="navegacao?pagina=index.jsp">Home</a></li>
+						<li><a href="navegacao?pagina=sobrenos.jsp">Sobre Nós</a></li>
+						<li><a href="navegacao?pagina=feminino.jsp">Feminino</a></li>
+						<li><a href="navegacao?pagina=masculino.jsp">Masculino</a></li>
+						<li><a href="navegacao?pagina=construcao.html">Nossas Lojas</a></li>
+						<li><a href="adicionaContato">Contato</a></li>
 					</ul>
 				</div>
 				<div class="col-md-3">

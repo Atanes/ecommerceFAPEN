@@ -41,9 +41,9 @@ public class AdicionaProdutoLogic implements Logica {
 				/*Escreve a o arquivo na pasta img*/
 				for (FileItem item : multiparts) {
 					if (!item.isFormField()) {
-						String path = request.getServletContext().getRealPath("imagensProdutos") + File.separator + item.getName();
+						String path = request.getServletContext().getRealPath("imagens_produtos") + File.separator + item.getName();
 						item.write(new File(path));
-						p.setUrl_imagem("imagensProdutos" + File.separator + item.getName());
+						p.setUrl_imagem("imagens_produtos" + File.separator + item.getName());
 					}else{
 						if(item.getFieldName().equals("id")){  
 							id = Integer.parseInt(item.getString()); 
@@ -51,22 +51,33 @@ public class AdicionaProdutoLogic implements Logica {
 						if(item.getFieldName().equals("descricao")){  
 							p.setDescricao(item.getString()); 
 			             }
+						if(item.getFieldName().equals("genero")){  
+							p.setGenero(item.getString());
+			             }
 						if(item.getFieldName().equals("preco_atual")){
-							System.out.println(item.getString().replaceAll("R|\\$| ", "").replaceAll(",", "."));
 							p.setPreco_atual(new BigDecimal(item.getString().replaceAll("R|\\$| ", "").replaceAll(",", "."))); 
 			             }
 						if(item.getFieldName().equals("preco_antigo")){  
-							p.setPreco_antigo(new BigDecimal(item.getString().replaceAll(",", "."))); 
+							p.setPreco_antigo(new BigDecimal(item.getString().replaceAll("R|\\$| ", "").replaceAll(",", "."))); 
 			             }
+						if(item.getFieldName().equals("estoque")){
+							p.setEstoque(Integer.parseInt(item.getString()));
+			             }
+						
+						if(item.getFieldName().equals("promocao")) {
+							if(item.getString().equals("true")){
+								p.setPromocao(true);
+							}else {
+								p.setPromocao(false);
+							}
+						}
+						
 					}
-					System.out.println(item.getFieldName());
 				}
 				
 				} catch (Exception ex) {
 					System.out.println("Upload de arquivo falhou devido a "+ ex);
 				}
-				
-				System.out.println(p.getUrl_imagem());
 				
 				if (id != 0) {
 					// Atualiza os dados do contato

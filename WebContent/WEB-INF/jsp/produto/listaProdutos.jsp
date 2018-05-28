@@ -21,6 +21,7 @@
 				<tr>
 					<th scope="col">#</th>
 					<th scope="col">Descrição</th>
+					<th scope="col">Gênero</th>
 					<th scope="col">Imagem</th>
 					<th scope="col">Preço Atual</th>
 					<th scope="col">Preço Antigo</th>
@@ -33,6 +34,7 @@
 			<tr>
 				<td>${produto.id}</td>
 				<td>${produto.descricao}</td>
+				<td>${produto.genero}</td>
 				<td>
 					<img class="img_produto_lista" src="${produto.url_imagem}"/>
 				</td>
