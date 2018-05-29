@@ -12,7 +12,6 @@
 <body>
 	<c:import url="../template/cabecalho.jsp" />
 	<div class="container">
-	
 		<h1 class="titulo titulo_form">Lista dos Contatos</h1>
 		<table class="table table-striped">
 			<thead>

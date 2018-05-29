@@ -1,5 +1,8 @@
 package br.com.iridiumit.ecommerceServlet.logica;
 
+import java.util.List;
+
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -41,7 +44,7 @@ public class AdicionaContatoLogic implements Logica {
 			dao.inserir(contato);
 		}       
         
-        return "mvc?logica=ListaContatosLogic";
+		return "mvc?logica=ListaContatosLogic";
 	}
 
 }

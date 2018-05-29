@@ -38,7 +38,7 @@ public class AdicionaProdutoLogic implements Logica {
 				List<FileItem> multiparts = new ServletFileUpload(new DiskFileItemFactory()).parseRequest(request);
 				
 				
-				/*Escreve a o arquivo na pasta img*/
+				/*Escreve a o arquivo na pasta imagens_produtos*/
 				for (FileItem item : multiparts) {
 					if (!item.isFormField()) {
 						String path = request.getServletContext().getRealPath("imagens_produtos") + File.separator + item.getName();
@@ -65,7 +65,8 @@ public class AdicionaProdutoLogic implements Logica {
 			             }
 						
 						if(item.getFieldName().equals("promocao")) {
-							if(item.getString().equals("true")){
+							System.out.println(item.getString());
+							if(item.getString().equals("on")){
 								p.setPromocao(true);
 							}else {
 								p.setPromocao(false);
@@ -80,12 +81,12 @@ public class AdicionaProdutoLogic implements Logica {
 				}
 				
 				if (id != 0) {
-					// Atualiza os dados do contato
+					// Atualiza os dados do produto
 					System.out.println("Salvando um novo produto..." + p.getDescricao());
 					p.setId(id);
 					dao.altera(p);
 				} else {
-					// salva o contato
+					// salva o produto
 					System.out.println("Incluindo um novo Produto..." + p.getDescricao());
 					dao.inserir(p);
 				}       

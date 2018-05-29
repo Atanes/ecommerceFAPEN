@@ -71,7 +71,7 @@ public class ProdutoDAO {
             	Produto produto = new Produto();
             	produto.setId(rs.getInt("id"));
             	produto.setDescricao(rs.getString("descricao"));
-            	produto.setGenero("genero");
+            	produto.setGenero(rs.getString("genero"));
             	produto.setUrl_imagem(rs.getString("url_imagem"));
             	
             	produto.setPreco_atual(rs.getBigDecimal("preco_atual"));
