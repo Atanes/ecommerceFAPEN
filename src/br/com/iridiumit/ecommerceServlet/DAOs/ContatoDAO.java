@@ -20,7 +20,7 @@ public class ContatoDAO {
 	}
 
 	public void inserir(Contato contato) {
-		String sql = "insert into contato " + "(nome,email,telefone,assunto,mensagem)" + " values (?,?,?,?,?)";
+		String sql = "insert into contatos " + "(nome,email,telefone,assunto,mensagem)" + " values (?,?,?,?,?)";
 
 		try {
 			// prepared statement para inclus�o dos dados na base de dados
@@ -55,7 +55,7 @@ public class ContatoDAO {
         try {
             List<Contato> contatos = new ArrayList<Contato>();
             PreparedStatement stmt = this.conn.
-                    prepareStatement("select * from contato");
+                    prepareStatement("select * from contatos");
             ResultSet rs = stmt.executeQuery();
 
             while (rs.next()) {
@@ -85,7 +85,7 @@ public class ContatoDAO {
     }
 	
 	public void altera(Contato contato) {
-	    String sql = "update contato set nome=?, email=?, telefone=?," +
+	    String sql = "update contatos set nome=?, email=?, telefone=?," +
 	            "assunto=?, mensagem=? where id=?";
 	    try {
 	        PreparedStatement stmt = conn.prepareStatement(sql);
@@ -105,7 +105,7 @@ public class ContatoDAO {
 	public void remove(Contato contato) {
 	    try {
 	        PreparedStatement stmt = conn.prepareStatement("delete " +
-	                "from contato where id=?");
+	                "from contatos where id=?");
 	        stmt.setLong(1, contato.getId());
 	        stmt.execute();
 	        stmt.close();
@@ -117,7 +117,7 @@ public class ContatoDAO {
 	public Contato encontraContato(int id) {
 	    try {
 	    	PreparedStatement stmt = this.conn.
-                    prepareStatement("select * from contato where id=?");
+                    prepareStatement("select * from contatos where id=?");
 	    	stmt.setInt(1, id);
             ResultSet rs = stmt.executeQuery();
             Contato contato = new Contato();
