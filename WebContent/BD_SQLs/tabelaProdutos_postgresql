@@ -15,17 +15,23 @@ ALTER TABLE produto_id_seq
 
 -- DROP TABLE produtos;
 
-CREATE TABLE produtos
+CREATE TABLE public.produtos
 (
-  id integer NOT NULL DEFAULT nextval('produto_id_seq'::regclass),
-  descricao character varying(60) NOT NULL,
-  preco_atual money NOT NULL,
-  preco_antigo money,
-  CONSTRAINT id_produto PRIMARY KEY (id)
+    id integer NOT NULL DEFAULT nextval('produto_id_seq'::regclass),
+    descricao character(255) COLLATE pg_catalog."default" NOT NULL,
+    url_imagem character(255) COLLATE pg_catalog."default" NOT NULL,
+    genero character(255) COLLATE pg_catalog."pt-BR-x-icu",
+    estoque integer,
+    promocao boolean,
+    preco_atual real,
+    preco_antigo real,
+    CONSTRAINT id_produto PRIMARY KEY (id)
 )
 WITH (
-  OIDS=FALSE
-);
+    OIDS = FALSE
+)
+TABLESPACE pg_default;
+
 ALTER TABLE produtos
   OWNER TO "UAtanes";
 COMMENT ON TABLE produtos

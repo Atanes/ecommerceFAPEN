@@ -32,7 +32,7 @@
 				<div class="row caixa_imgs">
 					<div class="col">
 						<div class="img_texto">
-							<a class="" href="navegacao?pagina=feminino.jsp"> <img
+							<a class="" href="mvc?logica=ListaProdutosFeminino"> <img
 								class="rounded mx-auto d-block" src="resources/img/asset1.jpeg"
 								alt="Liquida" />
 								<div class="link">Para Ela</div>
@@ -41,7 +41,7 @@
 					</div>
 					<div class="col">
 						<div class="img_texto">
-							<a class="" href="navegacao?pagina=masculino.jsp"> <img
+							<a class="" href="mvc?logica=ListaProdutosMasculino"> <img
 								class="rounded mx-auto d-block" src="resources/img/asset2.jpeg"
 								alt="Liquida" />
 								<div class="link">Para Ele</div>

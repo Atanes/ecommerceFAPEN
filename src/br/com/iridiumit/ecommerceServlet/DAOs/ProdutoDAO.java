@@ -20,7 +20,7 @@ public class ProdutoDAO {
 	}
 
 	public void inserir(Produto produto) {
-		String sql = "insert into produto " + "(descricao,genero,url_imagem,preco_atual,preco_antigo,estoque,promocao)" + " values (?,?,?,?,?,?,?)";
+		String sql = "insert into produtos " + "(descricao,genero,url_imagem,preco_atual,preco_antigo,estoque,promocao)" + " values (?,?,?,?,?,?,?)";
 
 		try {
 			// prepared statement para inclusão dos dados na base de dados
@@ -56,9 +56,9 @@ public class ProdutoDAO {
              * PreparedStatement stmt = this.conn.
                     prepareStatement("select id, descricao, imagem, preco_atual::numeric, preco_antigo::numeric from produtos");*/
             if(genero != "Todos"){
-            	SQL = "select id, descricao, genero, url_imagem, preco_atual, preco_antigo from produto where genero = 'unissex' or genero = '" + genero + "'";
+            	SQL = "select id, descricao, genero, url_imagem, preco_atual, preco_antigo from produtos where genero = 'unissex' or genero = '" + genero + "'";
             }else{
-            	SQL = "select id, descricao, genero, url_imagem, preco_atual, preco_antigo from produto";
+            	SQL = "select id, descricao, genero, url_imagem, preco_atual, preco_antigo from produtos";
             }
             
             
@@ -90,7 +90,7 @@ public class ProdutoDAO {
     }
 	
 	public void altera(Produto produto) {
-	    String sql = "update produto set descricao=?, genero=?, url_imagem=?, preco_atual=?," +
+	    String sql = "update produtos set descricao=?, genero=?, url_imagem=?, preco_atual=?," +
 	            "preco_antigo=?, estoque=?, promocao=? where id=?";
 	    try {
 	        PreparedStatement stmt = conn.prepareStatement(sql);
@@ -112,7 +112,7 @@ public class ProdutoDAO {
 	public void remove(Produto produto) {
 	    try {
 	        PreparedStatement stmt = conn.prepareStatement("delete " +
-	                "from produto where id=?");
+	                "from produtos where id=?");
 	        stmt.setLong(1, produto.getId());
 	        stmt.execute();
 	        stmt.close();
@@ -127,7 +127,7 @@ public class ProdutoDAO {
 	    	 * PreparedStatement stmt = this.conn.
                     prepareStatement("select id, descricao, imagem, preco_atual::numeric, preco_antigo::numeric from produtos where id=?");*/
 	    	PreparedStatement stmt = this.conn.
-                    prepareStatement("select id, descricao, genero, url_imagem, preco_atual, preco_antigo, estoque, promocao from produto where id=?");
+                    prepareStatement("select id, descricao, genero, url_imagem, preco_atual, preco_antigo, estoque, promocao from produtos where id=?");
 	    	stmt.setInt(1, id);
             ResultSet rs = stmt.executeQuery();
             Produto produto = new Produto();

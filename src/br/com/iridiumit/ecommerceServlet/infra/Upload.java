@@ -29,7 +29,7 @@ public class Upload extends HttpServlet {
 			HttpServletResponse response) throws ServletException, IOException {
 		
 		/*Obtem o caminho relatorio da pasta img*/
-		String path = request.getServletContext().getRealPath("imagensProdutos")+ File.separator;
+		String path = request.getServletContext().getRealPath("imagens_produtos")+ File.separator;
 		
 		File files = new File(path);
 		response.setContentType("image/jpeg");
@@ -56,7 +56,7 @@ public class Upload extends HttpServlet {
 				/*Escreve a o arquivo na pasta img*/
 				for (FileItem item : multiparts) {
 					if (!item.isFormField()) {
-						item.write(new File(request.getServletContext().getRealPath("imagensProdutos")+ File.separator + "uploadfile"));
+						item.write(new File(request.getServletContext().getRealPath("imagens_produtos")+ File.separator + "uploadfile"));
 					}
 				}
 
