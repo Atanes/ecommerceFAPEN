@@ -38,17 +38,18 @@
 							<td th:text="${produto.valor}">123</td>
 							<td th:text="${produto.qtd}">123</td>
 							<td class="text-center">
+							<form method="POST"	th:onsubmit="'return confirm(\'Posso remover o produto da base de dados?\');'"
+									th:action="@{/produto/excluir/{id}(id=${produto.id})}">
 									<a class="btn btn-primary btn-sm"
 										th:href="@{/produto/editar/{id}(id=${produto.id})}"
 										th:title="Editar"> <i class="fa fa-pencil-alt"></i>
 									</a>
-									<a class="btn btn-danger btn-sm"
-										th:href="@{/produto/excluir/{id}(id=${produto.id})}"
-										th:title="Excluir"> <i class="far fa-trash-alt"></i>
-									</a>
+									<button type="submit" class="btn btn-danger btn-sm" title="Excluir">
+										<span class="far fa-trash-alt"></span>
+									</button>
+								</form>
 							</td>
 						</tr>
-
 						<tr>
 							<td colspan="5" th:if="${produtos.empty}">Nenhum produto
 								cadastrado!!</td>

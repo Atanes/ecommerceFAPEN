@@ -1,10 +1,27 @@
 <!DOCTYPE html>
-<html>
+<html lang="pt" xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
 <head>
-<meta charset="UTF-8">
-<title>Página inicial do projeto</title>
+	<meta charset="UTF-8">
+	<link rel="shortcut icon" href="/images/favicon.png" type="image/x-icon" />
+	<link href="/css/estilo_IridiumIT.css" rel="stylesheet">
+	<link href="/css/estilo.css" rel="stylesheet">
+	<link th:href="@{/webjars/bootstrap/4.4.1/css/bootstrap.min.css}"
+		rel="stylesheet">
+	<link th:href="@{/webjars/font-awesome/5.12.0/css/all.css}"
+		rel="stylesheet" />
+	<title>Página inicial do projeto</title>
 </head>
 <body>
-	<h1>Página inicial do projeto - e-commerce Fapen - 4º ADS</h1>
+	<section class="container layout-pagina">
+		<div class="row">
+			<img class="logocliente col-2" src="/images/logoecommerce.jpg">
+			<h1 class="col-10 tituloformulario">Página inicial do projeto -
+				e-commerce Fapen - 4º ADS</h1>
+		</div>
+		<a href="/produto"><i class="fas fa-list"></i> Listagem de
+			Produtos</a> <a href="/produto/novo"><i class="fas fa-plus-circle"></i>
+			Incluir Produto</a>
+	</section>
 </body>
 </html>

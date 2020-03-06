@@ -32,7 +32,7 @@ public class ProdutoController {
 
 		return modelAndView;
 	}
-	
+
 	@GetMapping("/novo")
 	public ModelAndView novo(Produto produto) {
 
@@ -57,22 +57,21 @@ public class ProdutoController {
 		return new ModelAndView("redirect:/produto/editar/" + produto.getId());
 
 	}
-	
+
 	@GetMapping("editar/{id}")
 	public ModelAndView editar(@PathVariable Long id) {
 
 		return novo(produtos.getOne(id));
 	}
-	
-	@DeleteMapping("excluir/{id}")
+
+	@PostMapping(value = "excluir/{id}")
 	public String excluir(@PathVariable Long id, RedirectAttributes attributes) {
 
-		Produto p = produtos.getOne(id);
-
-		produtos.save(p);
+		produtos.deleteById(id);
 
 		attributes.addFlashAttribute("mensagem", "Produto excluido com sucesso!!");
 
 		return "redirect:/produto";
 	}
+
 }
