@@ -8,15 +8,117 @@
 <link href="/css/estilo.css" rel="stylesheet">
 <link href="/webjars/bootstrap/4.4.1/css/bootstrap.min.css"
 	rel="stylesheet">
+<link th:href="@{/webjars/font-awesome/5.12.0/css/all.css}"
+	rel="stylesheet" />
+<script th:src="@{/webjars/jquery/3.0.0/jquery.js}"></script>
+<script th:src="@{/webjars/bootstrap/4.4.1/js/bootstrap.min.js}"></script>
 <title>Cadastro de Produtos</title>
 </head>
 <body>
-	<section class="container layout-pagina">
-		<div class="row">
-			<img class="logocliente col-2" src="/images/logoecommerce.jpg">
-			<h1 class="col-10 tituloformulario">Cadastro de Produtos</h1>
-		</div>
+<div class="container">
+	<nav class="navbar navbar-light navbar-expand-lg justify-content-between fixed-top layout-menu">
+		<div class="container">
+			<a class="navbar-brand" href="/"> <img class="logo_cliente_P"
+				th:src="@{/images/logoecommerce.jpg}">
+			</a>
+			<button class="navbar-toggler" type="button" data-toggle="collapse"
+				data-target="#navbarSupportedContent"
+				aria-controls="navbarSupportedContent" aria-expanded="false"
+				aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
 
+			<div id="navbarSupportedContent" class="collapse navbar-collapse">
+
+				<ul class="navbar-nav mr-auto">
+					<li class="nav-item dropdown">
+						<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown"
+						role="button" data-toggle="dropdown" aria-haspopup="true"
+						aria-expanded="false"> Produtos </a>
+						<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+							<a class="dropdown-item" href="/produto">
+								<i class="fas fa-list-ol"></i>&nbsp;
+								Listar Produtos
+							</a>
+							<a class="dropdown-item" href="/produto/novo">
+								<i class="far fa-plus-square"></i>&nbsp;
+								Incluir Produtos
+							</a>
+						</div>
+					</li>
+					<li class="nav-item dropdown"><a href="#"
+						class="nav-link dropdown-toggle" data-toggle="dropdown"
+						role="button" aria-haspopup="true" aria-expanded="false">
+							Relatórios </a>
+						<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+							<a class="dropdown-item" href="#" target="_blank">
+								<i class="far fa-handshake"></i>&nbsp;
+								Clientes
+							</a>
+							<a class="dropdown-item" href="#" target="_blank">
+								<i class="far fa-handshake"></i>&nbsp;
+								Produtos
+							</a>
+							<a class="dropdown-item" href="#" target="_blank">
+								<i class="fas fa-file-pdf"></i>&nbsp;
+								Usuários - PDF
+							</a>
+							<a class="dropdown-item" href="#" target="_blank">
+								<i class="fas fa-file-excel"></i>&nbsp;
+								Usuários - Excel
+							</a>
+							<a class="dropdown-item" href="#" target="_blank">
+								<i class="fas fa-file-csv"></i>&nbsp;
+								Usuários - CSV
+							</a>
+						</div></li>
+
+					<!-- Menu com as funções de administração do sistema -->
+
+					<li class="nav-item dropdown"><a href="#"
+						class="nav-link dropdown-toggle" data-toggle="dropdown"
+						role="button" aria-haspopup="true" aria-expanded="false">
+							Administração </a>
+
+						<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+							<a class="dropdown-item" href="#"> <i class="fas fa-users"></i>&nbsp;
+								Listar Usuários
+							</a>
+							<a class="dropdown-item" href="#">
+								<i class="fas fa-user-plus"></i>&nbsp; 
+								Incluir Usuário
+							</a>
+							<a class="dropdown-item" href="#">
+								<i class="fas fa-address-card"></i> &nbsp;
+								Listar Clientes
+							</a>
+							<a class="dropdown-item" href="#"> <i
+								class="far fa-handshake"></i> &nbsp; Incluir Cliente
+							</a>
+							<a class="dropdown-item" href="/produto"> <i class="fas fa-list-ol"></i>
+								&nbsp; Listar Produtos
+							</a>
+						</div>
+					</li>
+				</ul>
+				<form class="form-inline my-2 my-lg-0" action="/logout"
+					method="post">
+					<i class="far fa-user-circle"></i>&nbsp;
+					<button type="submit" class="btn btn-secondary my-2 my-sm-0">
+						<i class="fas fa-sign-out-alt"></i>&nbsp;Sair
+					</button>
+				</form>
+			</div>
+		</div>
+	</nav>
+	<section class="aw-layout-content js-content layout-pagina">
+		<div class="row">
+			<h1 class="titulo-formulario">
+				<i class="far fa-plus-square"></i>
+				Cadastro de Produtos
+			</h1>
+		</div>
+		
 		<form method="POST" th:object="${produto}"
 			th:action="@{/produto/salvar}">
 
@@ -40,5 +142,6 @@
 			<button type="submit" class="btn btn-primary">Salvar</button>
 		</form>
 	</section>
+</div>
 </body>
 </html>
