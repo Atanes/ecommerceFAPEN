@@ -11,7 +11,7 @@
 <link th:href="@{/webjars/font-awesome/5.12.0/css/all.css}" rel="stylesheet" />
 <script th:src="@{/webjars/jquery/3.0.0/jquery.js}"></script>
 <script th:src="@{/webjars/bootstrap/4.4.1/js/bootstrap.min.js}"></script>
-<title>Listagem de Produtos</title>
+<title>Listagem de Usuários</title>
 </head>
 <body>
 <div class="container">
@@ -30,6 +30,21 @@
 			<div id="navbarSupportedContent" class="collapse navbar-collapse">
 
 				<ul class="navbar-nav mr-auto">
+					<li class="nav-item dropdown">
+						<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown"
+						role="button" data-toggle="dropdown" aria-haspopup="true"
+						aria-expanded="false"> Usuários </a>
+						<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+							<a class="dropdown-item" href="/usuario">
+								<i class="fas fa-list-ol"></i>&nbsp;
+								Listar Usuários
+							</a>
+							<a class="dropdown-item" href="/usuario/novo">
+								<i class="far fa-plus-square"></i>&nbsp;
+								Incluir Usuários
+							</a>
+						</div>
+					</li>
 					<li class="nav-item dropdown"><a
 						class="nav-link dropdown-toggle" href="#" id="navbarDropdown"
 						role="button" data-toggle="dropdown" aria-haspopup="true"
@@ -100,7 +115,7 @@
 			<div class="row">
 				<h1 class="titulo-formulario">
 					<i class="fas fa-list-ol"></i>
-					Listagem de Produtos
+					Listagem de Usuários
 				</h1>
 			</div>
 			
@@ -122,23 +137,21 @@
 						<thead>
 							<tr>
 								<th class="text-center" scope="col">Código</th>
-								<th scope="col">Descrição</th>
-								<th scope="col">Valor</th>
-								<th scope="col">Quantidade</th>
+								<th scope="col">Nome</th>
+								<th scope="col">Senha</th>
 								<th scope="col" class="text-center">Ações</th>
 							</tr>
 						</thead>
 						<tbody>
-							<tr th:each="produto: ${produtos}">
-								<td class="text-center" th:text="${produto.id}">123</td>
-								<td th:text="${produto.descricao}">123</td>
-								<td th:text="${produto.valor}">123</td>
-								<td th:text="${produto.qtd}">123</td>
+							<tr th:each="usuario: ${usuarios}">
+								<td class="text-center" th:text="${usuario.id}">123</td>
+								<td th:text="${usuario.nome}">123</td>
+								<td th:text="${usuario.senha}">123</td>
 								<td class="text-center">
-								<form method="POST"	th:onsubmit="'return confirm(\'Posso remover o produto da base de dados?\');'"
-										th:action="@{/produto/excluir/{id}(id=${produto.id})}">
+								<form method="POST"	th:onsubmit="'return confirm(\'Posso remover o usuario da base de dados?\');'"
+										th:action="@{/usuario/excluir/{id}(id=${usuario.id})}">
 										<a class="btn btn-primary btn-sm"
-											th:href="@{/produto/editar/{id}(id=${produto.id})}"
+											th:href="@{/usuario/editar/{id}(id=${usuario.id})}"
 											th:title="Editar"> <i class="fa fa-pencil-alt"></i>
 										</a>
 										<button type="submit" class="btn btn-danger btn-sm" title="Excluir">
@@ -148,7 +161,7 @@
 								</td>
 							</tr>
 							<tr>
-								<td colspan="5" th:if="${produtos.empty}">Nenhum produto
+								<td colspan="5" th:if="${usuarios.empty}">Nenhum usuário
 									cadastrado!!</td>
 							</tr>
 	
