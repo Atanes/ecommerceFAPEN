@@ -1,8 +1,10 @@
 <!DOCTYPE html>
 <html lang="pt" xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:th="http://www.thymeleaf.org"
-	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
 <head>
+
 <meta charset="UTF-8">
 <link rel="shortcut icon" href="/images/favicon.png" type="image/x-icon" />
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -17,17 +19,15 @@
 <script th:src="@{/webjars/bootstrap/4.4.1/js/bootstrap.min.js}"></script>
 
 <title>Projeto PAI - 4º ADS - FAPEN</title>
+
 </head>
 <body>
-	<section class="container layout-pagina">
-		<div class="centralizar">
-			<h1 class="titulo-formulario">
-				<i class="fas fa-home"></i>
-				Página logout do projeto -	e-commerce Fapen - 4º ADS
-			</h1>
-			<h2>Obrigado por ter visitado nossa página, até a próxima!</h2>
-		</div>
-	</section>
-	<div th:replace="layout/fragments/Footer :: rodape"></div>
+
+		<div th:replace="layout/fragments/BarraNavegacao :: menubar"></div>
+
+		<section layout:fragment="conteudo"></section>
+
+		<div th:replace="layout/fragments/Footer :: rodape"></div>
+
 </body>
 </html>
