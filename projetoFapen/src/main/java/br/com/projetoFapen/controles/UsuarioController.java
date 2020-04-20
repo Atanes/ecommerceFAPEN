@@ -3,6 +3,7 @@ package br.com.projetoFapen.controles;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -13,6 +14,7 @@ import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import br.com.projetoFapen.modelos.Usuario;
+import br.com.projetoFapen.repositorios.GrupoRepositorio;
 import br.com.projetoFapen.repositorios.UsuarioRepositorio;
 
 @Controller
@@ -21,6 +23,12 @@ public class UsuarioController {
 
 	@Autowired
 	private UsuarioRepositorio usuarios;
+	
+	@Autowired
+	private GrupoRepositorio grupos;
+	
+	@Autowired
+	private PasswordEncoder passwordEncoder;
 
 	@GetMapping
 	public ModelAndView listar() {
@@ -36,6 +44,8 @@ public class UsuarioController {
 	public ModelAndView novo(Usuario usuario) {
 
 		ModelAndView modelAndView = new ModelAndView("usuario/cadusuarios");
+		
+		modelAndView.addObject("grupos", grupos.findAll());
 
 		modelAndView.addObject(usuario);
 
@@ -45,10 +55,18 @@ public class UsuarioController {
 	@PostMapping("/salvar")
 	public ModelAndView salvar(@Valid Usuario usuario, BindingResult result, RedirectAttributes attributes) {
 
+		if (usuarios.existsByEmail(usuario.getEmail()) && !usuarios.existsByCodigo(usuario.getCodigo())) {
+
+			result.rejectValue("email", "usuario.email.existente");
+		}
+
 		if (result.hasErrors()) {
 			return novo(usuario);
 		}
-
+		
+		String senha = passwordEncoder.encode(usuario.getSenha());
+		usuario.setSenha(senha);
+		
 		usuarios.save(usuario);
 
 		attributes.addFlashAttribute("mensagem", "Usuário salvo com sucesso!!");

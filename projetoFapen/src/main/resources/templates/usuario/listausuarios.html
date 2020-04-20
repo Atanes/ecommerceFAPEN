@@ -35,20 +35,24 @@
 							<tr>
 								<th class="text-center" scope="col">Código</th>
 								<th scope="col">Nome</th>
-								<th scope="col">Senha</th>
+								<th scope="col">E-mail</th>
+								<th scope="col">Data Nasc.</th>
+								<th scope="col">Ativo</th>
 								<th scope="col" class="text-center">Ações</th>
 							</tr>
 						</thead>
 						<tbody>
 							<tr th:each="usuario: ${usuarios}">
-								<td class="text-center" th:text="${usuario.id}">123</td>
+								<td class="text-center" th:text="${usuario.codigo}">123</td>
 								<td th:text="${usuario.nome}">123</td>
-								<td th:text="${usuario.senha}">123</td>
+								<td th:text="${usuario.email}">123</td>
+								<td th:text="${usuario.getDataFormatada()}">123</td>
+								<td th:text="${usuario.ativo}">123</td>
 								<td class="text-center">
 								<form method="POST"	th:onsubmit="'return confirm(\'Posso remover o usuario da base de dados?\');'"
-										th:action="@{/usuario/excluir/{id}(id=${usuario.id})}">
+										th:action="@{/usuario/excluir/{id}(id=${usuario.codigo})}">
 										<a class="btn btn-primary btn-sm"
-											th:href="@{/usuario/editar/{id}(id=${usuario.id})}"
+											th:href="@{/usuario/editar/{id}(id=${usuario.codigo})}"
 											th:title="Editar"> <i class="fa fa-pencil-alt"></i>
 										</a>
 										<button type="submit" class="btn btn-danger btn-sm" title="Excluir">
@@ -58,7 +62,7 @@
 								</td>
 							</tr>
 							<tr>
-								<td colspan="5" th:if="${usuarios.empty}">Nenhum usuário
+								<td colspan="7" th:if="${usuarios.empty}">Nenhum usuário
 									cadastrado!!</td>
 							</tr>
 	
