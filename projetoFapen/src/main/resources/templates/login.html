@@ -29,6 +29,9 @@
                     <div class="card-header">
                         <strong>Tela de Login</strong>
                     </div>
+                    <div class="alert alert-danger" role="alert" th:if="${#bools.isTrue(param.error)}">
+  						O e-mail e/ou senha não conferem!!
+					</div>
                     <div class="card-body">
                         <form name="login" id="login" th:action="@{/login}" method="POST">
                             <div class="row">
