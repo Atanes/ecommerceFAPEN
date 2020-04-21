@@ -20,9 +20,6 @@ import javax.validation.constraints.Size;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
-import br.com.projetoFapen.validation.AtributoConfirmacao;
-
-@AtributoConfirmacao(atributo = "senha", atributoConfirmacao = "confirmacaoSenha")
 @Entity
 public class Usuario implements Serializable {
 

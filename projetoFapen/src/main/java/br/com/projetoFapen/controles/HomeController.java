@@ -7,14 +7,13 @@ import org.springframework.web.bind.annotation.PostMapping;
 @Controller
 public class HomeController {
 	
-	@GetMapping("/")
+	@GetMapping("/inicio")
 	public String inicio() {
 		return "inicio";
 	}
 	
-	@PostMapping("/logout")
-	public String fim() {
-		return "fim";
-	}
+	/*
+	 * @PostMapping("/logout") public String fim() { return "fim"; }
+	 */
 
 }
