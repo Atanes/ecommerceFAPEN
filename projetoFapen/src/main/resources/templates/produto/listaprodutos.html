@@ -4,6 +4,7 @@
 	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
 	layout:decorate="~{layout/layout_padrao}">
 <head>
+	<script src="/js/iridiumit.js"></script>
 	<title>Listagem de Produtos</title>
 </head>
 <body>
@@ -47,13 +48,13 @@
 								<td th:text="${produto.valor}">123</td>
 								<td th:text="${produto.qtd}">123</td>
 								<td class="text-center">
-								<form method="POST"	th:onsubmit="'return confirm(\'Posso remover o produto da base de dados?\');'"
-										th:action="@{/produto/excluir/{id}(id=${produto.id})}">
+								<form method="POST"	th:action="@{/produto/excluir/{id}(id=${produto.id})}">
 										<a class="btn btn-primary btn-sm"
 											th:href="@{/produto/editar/{id}(id=${produto.id})}"
 											th:title="Editar"> <i class="fa fa-pencil-alt"></i>
 										</a>
-										<button type="submit" class="btn btn-danger btn-sm" title="Excluir">
+										<button th:data-nome="|o produto ${produto.descricao}|" type="submit" class="btn btn-danger btn-sm" 
+												onclick="return confirmarExclusao(this.getAttribute('data-nome'))" title="Excluir">
 											<span class="far fa-trash-alt"></span>
 										</button>
 									</form>

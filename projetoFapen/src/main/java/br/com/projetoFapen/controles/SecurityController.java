@@ -8,12 +8,22 @@ import org.springframework.web.bind.annotation.GetMapping;
 @Controller
 public class SecurityController {
 	
+	@GetMapping("/")
+	public String inicio() {
+		return "inicio";
+	}
+	
 	@GetMapping("/login")
 	public String login(@AuthenticationPrincipal User user) {
 		if(user != null) {
 			return "redirect:/inicio";
 		}
 		return "login";
+	}
+	
+	@GetMapping("/acessoNegado")
+	public String acessoNegado() {
+		return "403";
 	}
 
 }

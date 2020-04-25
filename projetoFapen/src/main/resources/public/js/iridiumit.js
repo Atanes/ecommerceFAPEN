@@ -18,3 +18,15 @@ function validarSenha() {
 	}
 
 }
+
+function confirmarExclusao(e) {
+	textoExclusao = 'Posso remover '
+		+ e + ' da base de dados?'
+
+	if (!confirm(textoExclusao)) {
+		return false;
+	} else {
+		return true;
+	}
+
+}

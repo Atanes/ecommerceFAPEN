@@ -1,11 +1,12 @@
 <!DOCTYPE html>
 <html lang="pt" xmlns="http://www.w3.org/1999/xhtml" 
-	xmlns:th="http://www.thymeleaf.org">
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
 	
 <body>
 	<nav class="navbar navbar-light navbar-expand-lg justify-content-between fixed-top layout-menu" th:fragment="menubar">
 		<div class="container">
-			<a class="navbar-brand" href="/"> <img class="logo_cliente_P"
+			<a class="navbar-brand" href="/inicio"> <img class="logo_cliente_P"
 				th:src="@{/images/logoecommerce.jpg}">
 			</a>
 			<button class="navbar-toggler" type="button" data-toggle="collapse"
@@ -110,6 +111,8 @@
 				<form class="form-inline my-2 my-lg-0" th:action="@{/logout}"
 					method="post">
 					<i class="far fa-user-circle"></i>&nbsp;
+						<div sec:authentication="principal.username"></div>
+						&nbsp;
 					<button type="submit" class="btn btn-secondary my-2 my-sm-0">
 						<i class="fas fa-sign-out-alt"></i>&nbsp;Sair
 					</button>

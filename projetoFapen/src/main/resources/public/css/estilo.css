@@ -4,5 +4,30 @@
 }
 
 centralizar {
-    margin-right: -50%;
+	margin-right: -50%;
+}
+
+/*-----------------------------------------------------------*\
+  Error panel
+  - Para ser usado em páginas de erro simpls (404, 500, etc)
+\*-----------------------------------------------------------*/
+.iit-error-panel {
+	margin-top: 4em; 
+	background-color : #cbc9ca;
+	text-align: center;
+}
+
+.iit-error-panel__title {
+	font-size: 32px;
+}
+
+.iit-error-panel__description {
+	display: block;
+	padding: 18px 0;
+}
+
+.iit-error-panel__code {
+	color: yellow;
+	font-size: 80px;
+	font-weight: normal;
 }

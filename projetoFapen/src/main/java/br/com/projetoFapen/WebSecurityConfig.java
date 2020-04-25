@@ -27,6 +27,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 	protected void configure(HttpSecurity http) throws Exception {
 		http.authorizeRequests()
 		.antMatchers("/produto/**").hasRole("CADASTRAR_PRODUTO")
+		.antMatchers("/produto").hasRole("VISUALIZAR_PRODUTO")
 		.antMatchers("/usuario/**").hasRole("CADASTRAR_USUARIO")
 		.anyRequest().authenticated()
 		.and()
@@ -34,7 +35,9 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 		.loginPage("/login")
 		.permitAll()
 		.and()
-		.csrf().disable();
+		.exceptionHandling()
+		.accessDeniedPage("/acessoNegado")
+		.and();
 	}
 	
 	@Override

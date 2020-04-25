@@ -1,5 +1,6 @@
 package br.com.projetoFapen.repositorios;
 
+import java.time.LocalDate;
 import java.util.List;
 
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -12,6 +13,8 @@ public interface UsuarioRepositorio extends JpaRepository<Usuario, Long> {
 	boolean existsByCodigo(long codigo);
 	boolean existsByEmail(String email);
 	Usuario findByEmail(String email);
+	
+	Usuario findByDataNascimento(LocalDate data);
 	
 	Usuario findByEmailAndAtivoTrue(String email);
 	
