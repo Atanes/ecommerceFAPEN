@@ -2,6 +2,7 @@
 <html lang="pt" xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:th="http://www.thymeleaf.org"
 	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5"
 	layout:decorate="~{layout/layout_padrao}">
 <head>
 	<script src="/js/iridiumit.js"></script>
@@ -38,7 +39,10 @@
 								<th scope="col">Descrição</th>
 								<th scope="col">Valor</th>
 								<th scope="col">Quantidade</th>
-								<th scope="col" class="text-center">Ações</th>
+								<th scope="col" class="text-center" 
+									sec:authorize="hasRole('ROLE_ADMINISTRADOR') or hasRole('ROLE_CADASTRAR_PRODUTO')">
+									Ações
+								</th>
 							</tr>
 						</thead>
 						<tbody>
@@ -47,7 +51,7 @@
 								<td th:text="${produto.descricao}">123</td>
 								<td th:text="${produto.valor}">123</td>
 								<td th:text="${produto.qtd}">123</td>
-								<td class="text-center">
+								<td class="text-center" sec:authorize="hasRole('ROLE_ADMINISTRADOR') or hasRole('ROLE_CADASTRAR_PRODUTO')">
 								<form method="POST"	th:action="@{/produto/excluir/{id}(id=${produto.id})}">
 										<a class="btn btn-primary btn-sm"
 											th:href="@{/produto/editar/{id}(id=${produto.id})}"

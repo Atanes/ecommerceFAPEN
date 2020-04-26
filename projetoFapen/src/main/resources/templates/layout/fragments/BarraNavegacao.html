@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="pt" xmlns="http://www.w3.org/1999/xhtml" 
 	xmlns:th="http://www.thymeleaf.org"
-	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
 	
 <body>
 	<nav class="navbar navbar-light navbar-expand-lg justify-content-between fixed-top layout-menu" th:fragment="menubar">
@@ -82,9 +82,9 @@
 
 					<!-- Menu com as funções de administração do sistema -->
 
-					<li class="nav-item dropdown"><a href="#"
-						class="nav-link dropdown-toggle" data-toggle="dropdown"
-						role="button" aria-haspopup="true" aria-expanded="false">
+					<li class="nav-item dropdown" sec:authorize="hasRole('ROLE_ADMINISTRADOR')">
+						<a href="#"	class="nav-link dropdown-toggle" data-toggle="dropdown"
+							role="button" aria-haspopup="true" aria-expanded="false">
 							Administração </a>
 
 						<div class="dropdown-menu" aria-labelledby="navbarDropdown">
