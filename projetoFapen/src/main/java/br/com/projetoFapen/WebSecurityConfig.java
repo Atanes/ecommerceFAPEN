@@ -13,40 +13,43 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 
 @EnableWebSecurity
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
-	
+
 	@Autowired
 	UserDetailsService userDetailsService;
 
 	@Override
 	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-		
+
 		auth.userDetailsService(userDetailsService).passwordEncoder(passwordEncoder());
 	}
-	
+
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
 		http.authorizeRequests()
-		.antMatchers("/produto/**").hasRole("CADASTRAR_PRODUTO")
-		.antMatchers("/produto").hasRole("VISUALIZAR_PRODUTO")
-		.antMatchers("/usuario/**").hasRole("CADASTRAR_USUARIO")
-		.anyRequest().authenticated()
-		.and()
-		.formLogin()
-		.loginPage("/login")
-		.permitAll()
-		.and()
-		.exceptionHandling()
-		.accessDeniedPage("/acessoNegado")
-		.and();
+			.antMatchers("/produto/**").hasRole("CADASTRAR_PRODUTO")
+			.antMatchers("/produto").hasRole("VISUALIZAR_PRODUTO")
+			.antMatchers("/usuario/**").hasRole("CADASTRAR_USUARIO")
+			.anyRequest()				
+				.authenticated()
+				.and()
+			.formLogin() // Para colocar o formulário de login quando usamos Spring Security
+				.loginPage("/login") // URL para o formulário de login
+				.permitAll() // permissão de acesso para todos ao formulário de login
+				.and()
+			.exceptionHandling()
+				.accessDeniedPage("/acessoNegado") // direciona para uma página especifica
+													// quando o usuário não tem acesso a
+													// determinada parte do sistema
+				.and()
+			.sessionManagement() // Controla a sessão
+				.maximumSessions(1) // O número máximo de sessões simultaneas para o mesmo usuário
+				.expiredUrl("/login"); // Chama a página escolhida no caso de exceder o nr. de acessos ao mesmo tempo
 	}
-	
+
 	@Override
 	public void configure(WebSecurity web) throws Exception {
-		web.ignoring()
-		.antMatchers("/webjars/**")
-		.antMatchers("/images/**")
-		.antMatchers("/css/**")
-		.antMatchers("/js/**");
+		web.ignoring().antMatchers("/webjars/**").antMatchers("/images/**").antMatchers("/css/**")
+				.antMatchers("/js/**");
 	}
 
 	@Bean
