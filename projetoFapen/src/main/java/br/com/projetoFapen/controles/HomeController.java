@@ -10,9 +10,4 @@ public class HomeController {
 	public String inicio() {
 		return "inicio";
 	}
-	
-	/*
-	 * @PostMapping("/logout") public String fim() { return "fim"; }
-	 */
-
 }
