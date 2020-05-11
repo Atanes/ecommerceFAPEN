@@ -28,7 +28,7 @@
 								<i class="fas fa-list-ol"></i>&nbsp;
 								Listar Usuários
 							</a>
-							<a class="dropdown-item" href="/usuario/novo">
+							<a class="dropdown-item" href="/usuario/novo" sec:authorize="hasRole('ROLE_ADMINISTRADOR')">
 								<i class="far fa-plus-square"></i>&nbsp;
 								Incluir Usuários
 							</a>
