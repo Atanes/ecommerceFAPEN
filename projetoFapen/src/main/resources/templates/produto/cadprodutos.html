@@ -15,26 +15,43 @@
 			</h1>
 		</div>
 		
-		<form method="POST" th:object="${produto}"
+		<form method="POST" th:object="${produto}" enctype="multipart/form-data"
 			th:action="@{/produto/salvar}">
 
 			<input type="hidden" th:field="*{id}" />
 
 			<div class="form-row">
-				<div class="form-group col-md-6">
+				<div class="form-group col-6">
 					<label for="descricao">Descrição</label>
 					<input type="text" class="form-control" id="descricao" th:field="*{descricao}">
 				</div>
-				<div class="form-group col-md-6">
-					<label for="valor">valor</label>
-					<input type="text" class="form-control" id="valor" th:field="*{valor}">
+				<div class="form-group col-4">
+					<label for="imagem">Imagem</label>
+					<input class="form-control col-10" type="file" name="imagem"
+						value="*{url_imagem}" required />
 				</div>
-
-				<div class="form-group">
-					<label for="qtd">Quantidade</label>
-					<input type="text" class="form-control" id="qtd" th:field="*{qtd}">
+				
+				<div class="form-group col-2">
+					<div class="custom-control custom-checkbox">
+				      <input type="checkbox" class="custom-control-input" id="promocao" th:field="*{promocao}">
+				      <label class="custom-control-label" for="promocao">Promoção</label>
+				    </div>
 				</div>
 			</div>
+			<div class="form-row">
+				<th:block th:field="*{precos}">
+					<div class="form-group col-3" th:each="tipoPreco: ${ListaTiposPrecos}">
+					   <label th:for="${tipoPreco.descricao}" th:text="${tipoPreco.descricao}"></label>
+					   <input class="form-control" type="text" th:name="${tipoPreco.descricao}" th:value="*{precos(0).valor}">
+					</div>
+				</th:block>
+				
+				<div class="form-group col-3">
+					<label for="estoque">Estoque</label>
+					<input type="text" class="form-control" id="estoque" th:field="*{estoque}">
+				</div>
+			</div>
+				
 			<button type="submit" class="btn btn-primary">Salvar</button>
 		</form>
 	</section>

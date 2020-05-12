@@ -2,13 +2,16 @@ package br.com.projetoFapen.modelos;
 
 import java.io.Serializable;
 import java.math.BigDecimal;
+import java.text.NumberFormat;
+import java.util.List;
 
+import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
+
 
 @Entity
 public class Produto implements Serializable{
@@ -22,10 +25,13 @@ public class Produto implements Serializable{
 	@NotNull(message="Descrição do produto é obrigatória!")
 	String descricao;
 	
-	@NotEmpty(message = "Valor do produto é obrigatório!")
-	BigDecimal valor;
+	@ElementCollection
+	private List<Preco> precos;
+	private String url_imagem;
+	private boolean promocao;
 	
-	float qtd;
+	@NotNull(message="Qtd de produtos em estoque é obrigatório!")
+	private int estoque;
 
 	public long getId() {
 		return id;
@@ -43,20 +49,44 @@ public class Produto implements Serializable{
 		this.descricao = descricao;
 	}
 
-	public BigDecimal getValor() {
-		return valor;
+	public List<Preco> getPrecos() {
+		return precos;
 	}
 
-	public void setValor(BigDecimal valor) {
-		this.valor = valor;
+	public void setPrecos(List<Preco> precos) {
+		this.precos = precos;
+	}
+	
+	public String valorMoeda(BigDecimal valor){
+		NumberFormat nf = NumberFormat.getCurrencyInstance();
+		if(valor != null){
+			return nf.format(valor);
+		}
+		return "";
 	}
 
-	public float getQtd() {
-		return qtd;
+	public String getUrl_imagem() {
+		return url_imagem;
 	}
 
-	public void setQtd(float qtd) {
-		this.qtd = qtd;
+	public void setUrl_imagem(String url_imagem) {
+		this.url_imagem = url_imagem;
+	}
+
+	public boolean isPromocao() {
+		return promocao;
+	}
+
+	public void setPromocao(boolean promocao) {
+		this.promocao = promocao;
+	}
+
+	public int getEstoque() {
+		return estoque;
+	}
+
+	public void setEstoque(int estoque) {
+		this.estoque = estoque;
 	}
 
 	@Override
