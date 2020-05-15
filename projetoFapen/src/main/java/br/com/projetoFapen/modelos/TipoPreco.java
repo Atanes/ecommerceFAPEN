@@ -17,11 +17,9 @@ public enum TipoPreco {
 		return descricao;
 	}
   
-	
 	public static String[] descricaoPrecos(){
 		String[] lista = {"Preço atual","Preço antigo","Preço promoção"};
 		return lista;
 	}
-
 	
 }

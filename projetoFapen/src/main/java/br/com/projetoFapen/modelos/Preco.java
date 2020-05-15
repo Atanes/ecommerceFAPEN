@@ -9,24 +9,42 @@ import java.util.Locale;
 import javax.persistence.Embeddable;
 
 @Embeddable
-public class Preco implements Serializable{
+public class Preco implements Serializable, Comparable<Preco>{
 
 	private static final long serialVersionUID = -2058192870777069227L;
 	
 	private BigDecimal valor;
     private TipoPreco tipo;
-
-    public BigDecimal getValor() {
-        return valor;
+    
+    public Preco() {
+    	
     }
 
-    /*public void setValor(BigDecimal valor) {
-        this.valor = valor;
-    }*/
+	public Preco(TipoPreco tipoPreco) {
+		this.tipo = tipoPreco;
+	}
+
+	public BigDecimal getValor() {
+        return valor;
+    }
+    
+    public boolean getValorNull() {
+    	if(this.valor == null) {
+    		return true;
+    	}else {
+    		return false;
+    	}
+    }
+
+	/*
+	 * public void setValor(BigDecimal valor) { this.valor = valor; }
+	 */
     
     public void setValor(String valor) {
     	try {
-			this.valor = new BigDecimal(converte(valor));
+    		if(!valor.isEmpty()) {
+    			this.valor = new BigDecimal(converte(valor));
+    		}
 		} catch (ParseException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -53,5 +71,18 @@ public class Preco implements Serializable{
 	    double number = nf.parse(n).doubleValue();
 	    return number;
 	}
+    
+    public String valorMoeda(){
+		NumberFormat nf = NumberFormat.getCurrencyInstance();
+		if(this.valor != null){
+			return nf.format(valor);
+		}
+		return "";
+	}
 
-}
+	@Override
+	public int compareTo(Preco p) {
+        return this.tipo.compareTo(p.tipo);
+      }
+  }
+  
