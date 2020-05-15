@@ -4,9 +4,12 @@
 
 	<body>
 		<footer class="footer" th:fragment="rodape">
-	        <div class="container-fluid footer-texto">
-				<span class="aw-footer-disclaimer">&copy; 2020 IridiumIT - Prof. Alexandre Atanes de Jesus.
-					Todos os direitos reservados.</span>
+			<div class="layout-rodape">
+				<span>&copy; 2020 IridiumIT - Prof. Alexandre Atanes de Jesus.
+					Todos os direitos reservados.</span> <a th:href="www.iridiumit.com.br">
+					<img class="marca_iridiumit_rodape" alt="IridiumIT Tecnologia"
+					th:src="@{/images/logo_nome_IridiumIT.png}" />
+				</a>
 			</div>
 	    </footer>
 	</body>

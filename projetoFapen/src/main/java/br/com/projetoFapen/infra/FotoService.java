@@ -20,7 +20,7 @@ public class FotoService {
 	private Path local;
 	private Path localTemporario;	
 
-	//Diretório para armazenar as fotos na máquina local
+	//Diretório para armazenar as imagens na máquina local
 	private Path uploadRootPath = getDefault().getPath(System.getenv("USERPROFILE"), "//imagens_armazenadas");
 	
 	public FotoService() {
@@ -93,6 +93,7 @@ public class FotoService {
 
 	public byte[] recuperarFoto(String nomeFoto) {
 		try {
+			System.out.println(this.uploadRootPath.toString());
 			return Files.readAllBytes(this.uploadRootPath.resolve(nomeFoto));
 		} catch (IOException e) {
 			e.printStackTrace();

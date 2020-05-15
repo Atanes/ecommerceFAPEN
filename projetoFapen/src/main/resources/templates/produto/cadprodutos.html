@@ -15,74 +15,50 @@
 			</h1>
 		</div>
 		
-		
+		<th:block th:insert="layout/fragments/MensagemGeral :: geral"></th:block>
 		
 		<form method="POST" th:object="${produto}" enctype="multipart/form-data"
 			th:action="@{/produto/salvar}">
 			
-			<div class="alert  alert-danger  alert-dismissible" role="alert"
-					th:if="${#fields.hasAnyErrors()}">
-					<button type="button" class="close" data-dismiss="alert"
-						aria-label="Close">
-						<span aria-hidden="true">&times;</span>
-					</button>
-			
-					<div th:each="erro: ${#fields.detailedErrors()}">
-						<i class="fa fa-exclamation-circle"></i> <span
-							th:text="${erro.message}">Mensagem erro.</span>
-					</div>
-				</div>
+			<th:block th:insert="layout/fragments/MensagemErro :: erros"></th:block>
 
 			<input type="hidden" th:field="*{id}" />
 
 			<div class="form-row">
-				<div class="form-group col-6">
+				<div class="form-group col-sm-8">
 					<label for="descricao">Descrição</label>
 					<input type="text" class="form-control" id="descricao" th:field="*{descricao}">
 				</div>
 				
-				<div class="col-sm-2">
-					<div class="form-group">
+				<div class="form-group col-sm-4">
 						
-						<a data-toggle="modal" class="btn btn-primary btn-foto" href="#"
-										th:title="'Editar foto'" data-target="#modalCadastroImagemProduto">
-							<i class="fas fa-camera"></i>
-						</a>
-						<label for="imagemProduto">Foto</label>
-						<!-- Se Produto tem imagem cadastrada ou não -->
-						<div th:if="${produto.url_imagem}">
-						   <img id="imagemProduto" class="image_upload_preview" th:src="@{/produto/imagem/{nome}(nome=${produto.url_imagem})}" title="Imagem do produto" />
-						</div>
-						<!-- ELSE -->
-						<div th:unless="${produto.url_imagem}">
-						   <img id="imagemProduto" class="image_upload_preview" th:src="@{/images/produto-sem-imagem.jpg}" title="Imagem do produto" />
-						</div>
-						
+					<a data-toggle="modal" class="btn btn-primary iit-btn-imagem" href="#"
+								th:title="'Editar Imagem'" data-target="#modalCadastroImagemProduto">
+						<i class="fas fa-camera"></i>
+					</a>
+					<label for="imagemProduto">Imagem</label>
+					<!-- Se Produto tem imagem cadastrada ou não -->
+					<div th:if="${produto.url_imagem}">
+					   <img id="imagemProduto" class="image_upload_preview" th:src="@{/produto/imagem/{nome}(nome=${produto.url_imagem})}" title="Imagem do produto" />
 					</div>
-				</div>
-				
-				<div class="form-group col-2">
+					<!-- ELSE -->
+					<div th:unless="${produto.url_imagem}">
+					   <img id="imagemProduto" class="image_upload_preview" th:src="@{/images/produto-sem-imagem.jpg}" title="Imagem do produto" />
+					</div>
+						
+				</div>			
+			</div>
+			
+			<div class="form-row">
+				<div class="form-group col-sm-2">
 					<label for="estoque">Estoque</label>
 					<input type="text" class="form-control" id="estoque" th:field="*{estoque}">
 				</div>
 				
-			</div>
-			<div class="form-row">
-				<!-- <th:block th:field="*{precos}">
-					<th:block th:each="tipoPreco : ${ListaTiposPrecos}">
-						<div class="form-group col-3">
-								<label th:text="${tipoPreco.descricao}"></label>
-						   		<input class="form-control" type="text" th:name="precos[__${tipoPreco.ordinal()}__].valor"
-						   		th:value="${#lists.size(__${produto.precos}__)}" />
-						   		<input type="hidden" th:name="precos[__${tipoPreco.ordinal()}__].tipo" th:value="${tipoPreco}"/>
-						</div>
-					</th:block>
-				</th:block> -->
-				
 				<th:block th:field="*{precos}">
 					<th:block th:each="preco, e : ${precos}">
-						<div class="form-group col-3">
-								<label th:text="${preco.tipo}"></label>
+						<div class="form-group col-sm-2">
+								<label th:text="${preco.tipo.descricao}"></label>
 						   		<input class="form-control" type="text" th:name="precos[__${e.index}__].valor"
 						   		th:value="${preco.valor}? ${preco.valorMoeda()} : ''" />
 						   		<input type="hidden" th:name="precos[__${e.index}__].tipo" th:value="${preco.tipo}"/>
@@ -90,7 +66,7 @@
 					</th:block>
 				</th:block>
 				
-				<div class="form-group col-3">
+				<div class="form-group col-sm-2">
 					<div class="custom-control custom-checkbox">
 				      <input type="checkbox" class="custom-control-input" id="promocao" th:field="*{promocao}">
 				      <label class="custom-control-label" for="promocao">Promoção</label>
