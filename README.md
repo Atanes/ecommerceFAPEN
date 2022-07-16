@@ -68,3 +68,5 @@ No arquivo applications-properties alterar as informações abaixo conforme a co
 Clicar com o botão direito do mouse sobre o nome do projeto na janela Project Explorer do Eclipse, depois no menu Run As... e por fim selecionar Spring Boot App
 
 ![image](https://user-images.githubusercontent.com/18126923/176030267-52ec7dad-b8fa-41c6-bbda-16b4ae80e98b.png)
+
+Obs.: Sua contribuição é sempre bem vinda, por isso, se tiver alguma sugestão de melhoria e ou recomendação de ajuste/mudança das informações desse repositório, fique a vontade para abrir uma [ISSUE](https://github.com/Atanes/ecommerceFAPEN/issues) que ficarei muito feliz em receber suas sugestões, criticas e comentários!! 😊
